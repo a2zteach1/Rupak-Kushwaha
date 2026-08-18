@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>Rupak Kumar Kushwaha ✨</title>
+<link rel="shortcut icon" href="image/logo.png" type="image/x-icon">
+<style>
+  :root{
+    --pink:#ff3d9a;
+    --orange:#ff8a3d;
+    --yellow:#ffd23f;
+    --green:#2ee6a6;
+    --blue:#3d9dff;
+    --purple:#9b5cff;
+    --ink:#1a1633;
+    --card:rgba(255,255,255,0.85);
+  }
+
+  *{box-sizing:border-box; margin:0; padding:0;}
+
+  html{-webkit-text-size-adjust:100%;}
+  html,body{height:100%;}
+
+  body{
+    font-family:'Trebuchet MS','Segoe UI',sans-serif;
+    color:var(--ink);
+    min-height:100vh;
+    overflow-x:hidden;
+    background:
+      radial-gradient(circle at 15% 20%, var(--pink) 0%, transparent 40%),
+      radial-gradient(circle at 85% 15%, var(--blue) 0%, transparent 40%),
+      radial-gradient(circle at 25% 85%, var(--yellow) 0%, transparent 40%),
+      radial-gradient(circle at 80% 80%, var(--green) 0%, transparent 40%),
+      radial-gradient(circle at 50% 50%, var(--purple) 0%, transparent 55%),
+      #140f2b;
+    background-size:200% 200%;
+    animation: bgshift 18s ease-in-out infinite;
+    width:100%;
+  }
+
+  img,svg{max-width:100%;display:block;}
+
+  @keyframes bgshift{
+    0%{background-position:0% 0%;}
+    50%{background-position:100% 100%;}
+    100%{background-position:0% 0%;}
+  }
+
+  .blob{
+    position:fixed;
+    border-radius:50%;
+    filter:blur(60px);
+    opacity:.55;
+    z-index:0;
+    pointer-events:none;
+  }
+  .blob1{width:280px;height:280px;background:var(--pink);top:-80px;left:-80px;animation:float1 12s ease-in-out infinite;}
+  .blob2{width:320px;height:320px;background:var(--blue);bottom:-100px;right:-100px;animation:float2 14s ease-in-out infinite;}
+  .blob3{width:220px;height:220px;background:var(--yellow);bottom:20%;left:10%;animation:float1 10s ease-in-out infinite reverse;}
+
+  @keyframes float1{0%,100%{transform:translateY(0) translateX(0);} 50%{transform:translateY(40px) translateX(30px);}}
+  @keyframes float2{0%,100%{transform:translateY(0) translateX(0);} 50%{transform:translateY(-30px) translateX(-40px);}}
+
+  header{
+    position:relative;
+    z-index:2;
+    text-align:center;
+    padding:clamp(24px,6vw,38px) 16px 8px;
+  }
+
+  header h1{
+    font-size:clamp(1.5rem, 6vw, 3rem);
+    background:linear-gradient(90deg,var(--pink),var(--orange),var(--yellow),var(--green),var(--blue),var(--purple));
+    background-size:300% auto;
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+    animation:hue 6s linear infinite;
+    letter-spacing:1px;
+    line-height:1.25;
+    word-break:break-word;
+  }
+
+  @keyframes hue{
+    0%{background-position:0% center;}
+    100%{background-position:300% center;}
+  }
+
+  header p{
+    color:#f1eaff;
+    margin-top:8px;
+    font-size:clamp(.85rem,2.5vw,1.05rem);
+    opacity:.9;
+    padding:0 8px;
+  }
+
+  nav{
+    position:sticky;
+    top:0;
+    z-index:10;
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    padding:14px 10px;
+    flex-wrap:wrap;
+    backdrop-filter:blur(6px);
+  }
+
+  .tab-btn{
+    border:none;
+    cursor:pointer;
+    padding:11px 22px;
+    font-size:.95rem;
+    font-weight:700;
+    color:#fff;
+    border-radius:50px;
+    background:linear-gradient(135deg, rgba(255,255,255,0.12), rgba(255,255,255,0.05));
+    border:2px solid rgba(255,255,255,0.35);
+    transition:transform .25s ease, box-shadow .25s ease, background .25s ease;
+    letter-spacing:.5px;
+    white-space:nowrap;
+  }
+
+  .tab-btn:hover{
+    transform:translateY(-3px) scale(1.04);
+    box-shadow:0 10px 25px rgba(0,0,0,0.25);
+  }
+
+  .tab-btn.active{
+    background:linear-gradient(135deg,var(--pink),var(--purple),var(--blue));
+    border-color:transparent;
+    box-shadow:0 10px 30px rgba(255,61,154,0.45);
+  }
+
+  main{
+    position:relative;
+    z-index:2;
+    max-width:1100px;
+    margin:0 auto;
+    padding:16px clamp(14px,4vw,24px) 70px;
+    width:100%;
+  }
+
+  .tab-panel{
+    display:none;
+    animation:fadeUp .5s ease;
+  }
+  .tab-panel.active{display:block;}
+
+  @keyframes fadeUp{
+    from{opacity:0; transform:translateY(16px);}
+    to{opacity:1; transform:translateY(0);}
+  }
+
+  /* ---------- HOME ---------- */
+  .hero-card{
+    background:var(--card);
+    border-radius:28px;
+    padding:clamp(26px,5vw,44px) clamp(18px,5vw,34px);
+    text-align:center;
+    box-shadow:0 20px 50px rgba(0,0,0,0.35);
+    position:relative;
+    overflow:hidden;
+  }
+  .hero-card::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(120deg, rgba(255,61,154,.15), rgba(61,157,255,.15), rgba(46,230,166,.15));
+    z-index:0;
+  }
+  .hero-inner{position:relative; z-index:1;}
+
+  .avatar{
+    width:clamp(90px,20vw,120px);height:clamp(90px,20vw,120px);
+    border-radius:50%;
+    margin:0 auto 18px;
+    background:conic-gradient(from 90deg,var(--pink),var(--orange),var(--yellow),var(--green),var(--blue),var(--purple),var(--pink));
+    display:flex;align-items:center;justify-content:center;
+    font-size:clamp(2rem,6vw,2.6rem);
+    box-shadow:0 10px 30px rgba(0,0,0,0.25);
+  }
+  .avatar span{
+    background:#fff;
+    width:86%;height:86%;
+    border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+  }
+
+  .hero-card h2{
+    font-size:clamp(1.3rem,5vw,2.4rem);
+    margin-bottom:8px;
+    color:var(--ink);
+    word-break:break-word;
+  }
+  .hero-card .subrole{
+    font-weight:700;
+    color:var(--pink);
+    margin-bottom:14px;
+    font-size:clamp(.85rem,2.5vw,1rem);
+  }
+  .hero-card p.desc{
+    max-width:600px;
+    margin:0 auto 22px;
+    color:#3a3358;
+    line-height:1.6;
+    font-size:clamp(.88rem,2.3vw,1rem);
+  }
+
+  .cta-row{display:flex; gap:14px; justify-content:center; flex-wrap:wrap;}
+  .cta{
+    padding:12px 24px;
+    border-radius:50px;
+    font-weight:700;
+    text-decoration:none;
+    color:#fff;
+    box-shadow:0 8px 20px rgba(0,0,0,0.2);
+    transition:transform .2s ease;
+    font-size:.92rem;
+    border:none;
+    cursor:pointer;
+  }
+  .cta:hover{transform:translateY(-3px) scale(1.05);}
+  .cta.one{background:linear-gradient(135deg,var(--pink),var(--purple));}
+  .cta.two{background:linear-gradient(135deg,var(--blue),var(--green));}
+  .cta.three{background:linear-gradient(135deg,#ff0000,var(--orange));}
+
+  .highlights{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:18px;
+    margin-top:30px;
+  }
+  .highlight{
+    background:var(--card);
+    border-radius:20px;
+    padding:22px 16px;
+    text-align:center;
+    box-shadow:0 12px 30px rgba(0,0,0,0.25);
+    transition:transform .25s ease;
+  }
+  .highlight:hover{transform:translateY(-6px);}
+  .highlight .emoji{font-size:1.8rem; margin-bottom:8px;}
+  .highlight h3{margin-bottom:6px; color:var(--ink); font-size:1.02rem;}
+  .highlight p{color:#4a4368; font-size:.88rem; line-height:1.4;}
+
+  .company-banner{
+    margin-top:30px;
+    background:linear-gradient(135deg,var(--purple),var(--pink));
+    border-radius:22px;
+    padding:26px 22px;
+    text-align:center;
+    color:#fff;
+    box-shadow:0 16px 34px rgba(0,0,0,0.3);
+  }
+  .company-banner h3{font-size:clamp(1.1rem,3.5vw,1.4rem); margin-bottom:6px;}
+  .company-banner p{font-size:.9rem; opacity:.92; max-width:560px; margin:0 auto;}
+
+  /* ---------- MY APPS ---------- */
+  .section-title{
+    text-align:center;
+    color:#fff;
+    font-size:clamp(1.3rem,4vw,2.1rem);
+    margin-bottom:6px;
+    text-shadow:0 4px 20px rgba(0,0,0,0.4);
+  }
+  .section-sub{
+    text-align:center;
+    color:#e9e3ff;
+    margin-bottom:26px;
+    opacity:.85;
+    font-size:clamp(.82rem,2.2vw,1rem);
+    padding:0 8px;
+  }
+
+  .apps-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(160px,1fr));
+    gap:18px;
+  }
+
+  .app-box{
+    position:relative;
+    border:none;
+    cursor:pointer;
+    border-radius:22px;
+    padding:24px 14px 18px;
+    color:#fff;
+    text-align:center;
+    font-weight:700;
+    font-size:1rem;
+    min-height:140px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    box-shadow:0 14px 30px rgba(0,0,0,0.3);
+    transition:transform .25s ease, box-shadow .25s ease;
+    overflow:hidden;
+    width:100%;
+  }
+  .app-box::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(160deg, rgba(255,255,255,0.25), rgba(255,255,255,0));
+  }
+  .app-box:hover{
+    transform:translateY(-8px) scale(1.04) rotate(-1deg);
+    box-shadow:0 20px 40px rgba(0,0,0,0.4);
+  }
+  .app-box .icon{
+    font-size:2.2rem;
+    z-index:1;
+  }
+  .app-box .name{position:relative; z-index:1; word-break:break-word;}
+  .app-box .tag{
+    position:relative; z-index:1;
+    font-size:.68rem;
+    font-weight:600;
+    background:rgba(255,255,255,0.25);
+    padding:3px 10px;
+    border-radius:20px;
+    letter-spacing:.5px;
+    text-transform:uppercase;
+  }
+
+  /* ---------- ABOUT ---------- */
+  .about-card{
+    background:var(--card);
+    border-radius:28px;
+    padding:clamp(24px,5vw,38px) clamp(18px,5vw,32px);
+    box-shadow:0 20px 50px rgba(0,0,0,0.35);
+  }
+  .about-top{
+    display:flex;
+    align-items:center;
+    gap:18px;
+    flex-wrap:wrap;
+    margin-bottom:22px;
+  }
+  .about-top .avatar{width:80px;height:80px; margin:0; flex-shrink:0;}
+  .about-top .avatar span{width:86%;height:86%; font-size:1.8rem;}
+  .about-top h2{color:var(--ink); font-size:clamp(1.3rem,4vw,1.7rem); word-break:break-word;}
+  .about-top p.role{color:var(--pink); font-weight:700; margin-top:4px; font-size:clamp(.82rem,2.3vw,.95rem);}
+  .about-top p.role2{color:var(--blue); font-weight:700; font-size:clamp(.78rem,2.1vw,.88rem); margin-top:2px;}
+
+  .about-card p.bio{
+    color:#3a3358;
+    line-height:1.75;
+    margin-bottom:24px;
+    font-size:clamp(.88rem,2.3vw,1rem);
+  }
+
+  .company-card{
+    background:linear-gradient(135deg, rgba(155,92,255,0.12), rgba(255,61,154,0.12));
+    border:2px solid rgba(155,92,255,0.3);
+    border-radius:18px;
+    padding:18px 20px;
+    margin-bottom:24px;
+  }
+  .company-card h4{
+    color:var(--purple);
+    font-size:.78rem;
+    text-transform:uppercase;
+    letter-spacing:.6px;
+    margin-bottom:6px;
+  }
+  .company-card h3{
+    color:var(--ink);
+    font-size:clamp(1.1rem,3vw,1.35rem);
+    margin-bottom:6px;
+  }
+  .company-card p{
+    color:#3a3358;
+    font-size:.9rem;
+    line-height:1.55;
+  }
+
+  .info-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:14px;
+    margin-bottom:24px;
+  }
+  .info-item{
+    background:rgba(255,255,255,0.6);
+    border-left:5px solid var(--purple);
+    border-radius:14px;
+    padding:12px 15px;
+  }
+  .info-item h4{font-size:.75rem; text-transform:uppercase; letter-spacing:.5px; color:var(--purple); margin-bottom:4px;}
+  .info-item p{color:var(--ink); font-weight:600; font-size:.92rem; word-break:break-word;}
+
+  .skills{
+    display:flex; flex-wrap:wrap; gap:9px; margin-bottom:24px;
+  }
+  .skill-chip{
+    padding:7px 14px;
+    border-radius:50px;
+    font-size:.8rem;
+    font-weight:700;
+    color:#fff;
+  }
+
+  .social-row{display:flex; gap:12px; flex-wrap:wrap;}
+  .social-row a{
+    text-decoration:none;
+    color:#fff;
+    padding:10px 18px;
+    border-radius:50px;
+    font-weight:700;
+    font-size:.85rem;
+    box-shadow:0 8px 20px rgba(0,0,0,0.2);
+    transition:transform .2s ease;
+  }
+  .social-row a:hover{transform:translateY(-3px);}
+
+  footer{
+    position:relative;
+    z-index:2;
+    text-align:center;
+    padding:20px 12px;
+    color:#e9e3ff;
+    font-size:.8rem;
+    opacity:.75;
+  }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:600px){
+    nav{gap:8px; padding:10px 8px;}
+    .tab-btn{padding:9px 16px; font-size:.85rem;}
+    .cta-row{flex-direction:column; align-items:stretch;}
+    .cta{width:100%;}
+    .about-top{flex-direction:column; text-align:center;}
+    .social-row{justify-content:center;}
+    .apps-grid{grid-template-columns:repeat(auto-fill,minmax(130px,1fr)); gap:12px;}
+    .app-box{min-height:120px; padding:18px 10px 14px;}
+    .app-box .icon{font-size:1.8rem;}
+  }
+
+  @media (min-width:1200px){
+    main{max-width:1200px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="blob blob1"></div>
+<div class="blob blob2"></div>
+<div class="blob blob3"></div>
+
+<header>
+  <h1>✨ RUPAK KUMAR KUSHWAHA ✨</h1>
+  <p>• ACCA • Mobile & Web Developer • Founder of A2Z Teach YouTube Channel</p>
+</header>
+
+<nav>
+  <button class="tab-btn active" data-tab="home">🏠 Home</button>
+  <button class="tab-btn" data-tab="apps">🧩 My Apps</button>
+  <button class="tab-btn" data-tab="about">👤 About</button>
+</nav>
+
+<main>
+
+  <!-- HOME -->
+  <section id="home" class="tab-panel active">
+    <div class="hero-card">
+      <div class="hero-inner">
+        <div class="avatar"><span>🚀</span></div>
+        <h2>Hey, I'm Rupak Kumar Kushwaha 👋</h2>
+        <p class="subrole">ACCA Accountant &nbsp;|&nbsp; Mobile & Web Developer &nbsp;|&nbsp; Founder of A2Z Teach YouTube Channel</p>
+        <p class="desc">I blend numbers with code — an ACCA accountant by profession and a mobile & web
+        developer by passion, building with HTML, CSS, JavaScript & Flutter. I'm also the founder
+        of <strong>A2Z Teach</strong> YouTube Channel, where I share knowledge and build tools that help people learn and grow.</p>
+        <div class="cta-row">
+          <button class="cta one" onclick="switchTab('apps')">🧩 See My Apps</button>
+          <button class="cta two" onclick="switchTab('about')">👤 About Me</button>
+          <a class="cta three" href="https://youtube.com/@a2z-teach0" target="_blank" rel="noopener noreferrer">▶️ YouTube</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="highlights">
+      <div class="highlight">
+        <div class="emoji">📊</div>
+        <h3>ACCA Accountant</h3>
+        <p>Professional finance & accounting expertise.</p>
+      </div>
+      <div class="highlight">
+        <div class="emoji">📱</div>
+        <h3>App Developer</h3>
+        <p>Building mobile apps with Flutter.</p>
+      </div>
+      <div class="highlight">
+        <div class="emoji">🌐</div>
+        <h3>Web Developer</h3>
+        <p>Crafting websites with HTML, CSS & JS.</p>
+      </div>
+      <div class="highlight">
+        <div class="emoji">🎓</div>
+        <h3>Founder of A2Z Teach YouTube Channel</h3>
+        <p>Teaching and building tools to help others to learn from Youtube Channel.</p>
+      </div>
+    </div>
+
+    <div class="company-banner">
+      <h3>🎓 A2Z Teach</h3>
+      <p>My organisation dedicated to teaching and empowering learners — from A2Z Teach YouTube Channel.
+      Founded and run by Rupak Kumar Kushwaha.</p>
+    </div>
+  </section>
+
+  <!-- MY APPS -->
+  <section id="apps" class="tab-panel">
+    <h2 class="section-title">My Apps</h2>
+    <p class="section-sub">Tap a box to open the app in a new tab 🚀</p>
+    <div class="apps-grid" id="appsGrid"></div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="tab-panel">
+    <div class="about-card">
+      <div class="about-top">
+        <div class="avatar"><span>🙂</span></div>
+        <div>
+          <h2>Rupak Kumar Kushwaha</h2>
+          <p class="role">• ACCA • Mobile & Web Developer</p>
+          <p class="role2">🎓 Founder — A2Z Teach YouTube Channel</p>
+        </div>
+      </div>
+
+      <p class="bio">
+        I'm Rupak Kumar Kushwaha — an ACCA-qualified accountant with a passion for technology.
+        Alongside my accounting career, I work as a mobile and web developer, building apps and
+        websites using HTML, CSS, JavaScript, and Flutter. I'm also the founder of
+        <strong>A2Z Teach</strong> YouTube Channel, an organisation where I create educational content and tools
+        to help others learn accounting, coding, and more. I love combining my finance
+        background with development skills to build practical, useful digital products.
+      </p>
+
+      <div class="company-card">
+        <h4>Organisation</h4>
+        <h3>🎓 A2Z Teach</h3>
+        <p>Founded and led by Rupak Kumar Kushwaha, A2Z Teach is dedicated to making learning
+        accessible through tutorials, apps, and content — covering everything from accounting
+        fundamentals to web & mobile development.</p>
+      </div>
+
+      <div class="info-grid">
+        <div class="info-item"><h4>📍 Location</h4><p>kathmandu, Nepal</p></div>
+        <div class="info-item"><h4>💼 Profession</h4><p>ACCA Accountant</p></div>
+        <div class="info-item"><h4>💻 Development</h4><p>Mobile & Web Developer</p></div>
+        <div class="info-item"><h4>🎓 Organisation</h4><p>Founder of A2Z Teach YouTube Channel</p></div>
+        <div class="info-item"><h4>📧 Email</h4><p>a2zteach0@gmail.com</p></div>
+        <div class="info-item"><h4>▶️ YouTube Channel</h4><p>A2Z Teach</p></div>
+      </div>
+
+      <div class="skills">
+        <span class="skill-chip" style="background:var(--pink)">HTML</span>
+        <span class="skill-chip" style="background:var(--orange)">CSS</span>
+        <span class="skill-chip" style="background:var(--yellow); color:#3a3358;">JavaScript</span>
+        <span class="skill-chip" style="background:var(--green)">Flutter</span>
+        <span class="skill-chip" style="background:var(--blue)">Mobile Apps Development</span>
+        <span class="skill-chip" style="background:var(--purple)">Web Development</span>
+        <span class="skill-chip" style="background:#ff5e5e">ACCA / Accounting</span>
+        <span class="skill-chip" style="background:#5e6bff">YouTube Teaching</span>
+      </div>
+
+      <div class="social-row">
+        <a href="https://youtube.com/@a2z-teach0" target="_blank" rel="noopener noreferrer" style="background:#ff0000;">▶️ YouTube</a>
+        <a href="https://www.instagram.com/rupak_kushwaha1" target="_blank" rel="noopener noreferrer" style="background:var(--pink);">📸 Instagram</a>
+        <a href="https://www.facebook.com/Rupak.Kushwaha0" target="_blank" rel="noopener noreferrer" style="background:var(--ink);">💻 Facebook</a>
+        <a href="#" target="_blank" rel="noopener noreferrer" style="background:#0077b5;">💼 LinkedIn</a>
+        <a href="https://a2zteach1.github.io/A2Z-Teach-Website" target="_blank" rel="noopener noreferrer" style="background:var(--purple);">🎓 A2Z Teach</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer> &copy; Copyright 2026 A2Z Teach (Rupak Kumar Kushwaha) All Rights Reserved</footer>
+
+<script>
+  // ---------- EDIT YOUR APPS HERE ----------
+  // Add/remove/edit objects below. `link` opens in a new tab when the box is clicked.
+  const APPS = [
+  { name: "Timer App",                         icon: "⏱️", tag: "Productivity", link: "https://timer-rupak.netlify.app/",                            color1: "#ff3d9a", color2: "#ff8a3d" },
+  { name: "Personalize <br> Birthday Surprise", icon: "🎂", tag: "Utility",      link: "https://personalized-birthday.netlify.app/", color1: "#ff416c", color2: "#ff4b2b" },
+  { name: "Useful Website",                    icon: "🌐", tag: "Resource",     link: "https://daily-useful-website.netlify.app/",                 color1: "#f7971e", color2: "#ffd200" },
+  { name: "A2Z Teach Website",                 icon: "🌐", tag: "Resource",     link: "https://a2z-teach-website.netlify.app/",              color1: "#11998e", color2: "#2ee6a6" },
+  { name: "Class 12 Accounting Note",          icon: "📚", tag: "Education",    link: "https://class-12-accounting.netlify.app/",               color1: "#9b5cff", color2: "#ff3d9a" },
+  { name: "ACCA AA Practice",                  icon: "🔍", tag: "Education",    link: "https://acca-aa-practice.netlify.app/",               color1: "#00c6ff", color2: "#0072ff" },
+  { name: "ACCA FA Practice",                  icon: "🧮", tag: "Education",    link: "https://acca-fa-practice.netlify.app/",  color1: "#11998e", color2: "#38ef7d" },
+  { name: "Screen Recorder",                   icon: "🎥", tag: "Tool",         link: "https://screen-recorder-rupak.netlify.app/",  color1: "#e52d27", color2: "#b31217" },
+  { name: "Tic Tac Toe Game",                  icon: "🎮", tag: "Game",         link: "https://tic-tac-toe-game-rupak.netlify.app/",               color1: "#8a2387", color2: "#e94057" },
+  { name: "Alphabet Matching Game",            icon: "🔤", tag: "Game",         link: "https://alphabet-matching-game.netlify.app/",        color1: "#f857a6", color2: "#ff5858" },
+  { name: "Kids Quiz Game",                    icon: "🧩", tag: "Game",         link: "https://kids-quiz-game.netlify.app/",                 color1: "#3d9dff", color2: "#2ee6a6" },
+];
+  // -----------------------------------------
+
+  const grid = document.getElementById('appsGrid');
+  APPS.forEach(app => {
+    const box = document.createElement('button');
+    box.className = 'app-box';
+    box.style.background = `linear-gradient(135deg, ${app.color1}, ${app.color2})`;
+    box.innerHTML = `
+      <div class="icon">${app.icon}</div>
+      <div class="name">${app.name}</div>
+      <div class="tag">${app.tag}</div>
+    `;
+    box.addEventListener('click', () => window.open(app.link, '_blank', 'noopener,noreferrer'));
+    grid.appendChild(box);
+  });
+
+  // ---------- TAB SWITCHING ----------
+  const tabBtns = document.querySelectorAll('.tab-btn');
+  const panels = document.querySelectorAll('.tab-panel');
+
+  function switchTab(id){
+    tabBtns.forEach(b => b.classList.toggle('active', b.dataset.tab === id));
+    panels.forEach(p => p.classList.toggle('active', p.id === id));
+    window.scrollTo({top:0, behavior:'smooth'});
+  }
+
+  tabBtns.forEach(btn => {
+    btn.addEventListener('click', () => switchTab(btn.dataset.tab));
+  });
+</script>
+
+</body>
+</html>
