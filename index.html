@@ -2,6 +2,20 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+
+<!-- ===== Theme init (prevents flash of wrong theme) ===== -->
+<script>
+(function(){
+  try{
+    var saved = localStorage.getItem('a2z-theme') || 'system';
+    var resolved = saved === 'system'
+      ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
+      : saved;
+    document.documentElement.setAttribute('data-theme', resolved);
+  }catch(e){}
+})();
+</script>
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
 <title>Rupak Kushwaha ✨</title>
 <link rel="shortcut icon" href="image/logo.png" type="image/x-icon">
@@ -25,6 +39,7 @@
   :root{
     --teal-deep:   #0B5E63;
     --teal-dark:   #063C40;
+    --teal-text:   #063C40;
     --mint:        #E7F5EF;
     --mint-soft:   #F4FBF8;
     --coral:       #FF6B5B;
@@ -36,11 +51,27 @@
     --paper:       #FDFBF6;
     --white:       #ffffff;
     --line:        rgba(11,94,99,0.14);
+    --nav-bg:      rgba(253,251,246,0.86);
+    --footer-bg:   #14282A;
     --shadow:      0 18px 40px -18px rgba(6,60,64,0.35);
     --radius-lg:   26px;
     --radius-sm:   14px;
     --ff-display:  'Fraunces', serif;
     --ff-body:     'Manrope', sans-serif;
+  }
+
+  /* ---------- DARK MODE OVERRIDES ---------- */
+  :root[data-theme="dark"]{
+    --mint:        #15302E;
+    --mint-soft:   #101B1C;
+    --white:       #172325;
+    --paper:       #0E1516;
+    --ink:         #EAF3F1;
+    --ink-soft:    #9FB8B5;
+    --line:        rgba(255,255,255,0.14);
+    --nav-bg:      rgba(14,21,22,0.88);
+    --shadow:      0 18px 40px -18px rgba(0,0,0,0.6);
+    --teal-text:   #6FE0D2;
   }
 
   *{ box-sizing:border-box; margin:0; padding:0; }
@@ -51,6 +82,7 @@
     background:var(--paper);
     -webkit-font-smoothing:antialiased;
     overflow-x:hidden;
+    transition:background 0.25s ease, color 0.25s ease;
   }
   img{ max-width:100%; display:block; }
   a{ color:inherit; text-decoration:none; }
@@ -90,7 +122,7 @@
   }
   header.site-nav::before{
     content:""; position:absolute; inset:0; z-index:-1;
-    background:rgba(253,251,246,0.86);
+    background:var(--nav-bg);
     backdrop-filter:blur(10px);
     -webkit-backdrop-filter:blur(10px);
   }
@@ -104,7 +136,7 @@
   .brand{
     display:flex; align-items:center; gap:12px;
     font-family:var(--ff-display); font-weight:600; font-size:1.15rem;
-    color:var(--teal-dark);
+    color:var(--teal-text);
   }
   .brand .mark{
     width:42px; height:42px; border-radius:12px;
@@ -119,15 +151,58 @@
     letter-spacing:0.02em; color:var(--coral-dark); margin-top:1px;
   }
 
+  /* wraps nav links + theme toggle + burger together on the right */
+  .nav-right{ display:flex; align-items:center; gap:14px; }
+
   nav.links{ display:flex; align-items:center; gap:2px; }
   nav.links a{
     padding:10px 16px; border-radius:999px; font-weight:600; font-size:0.94rem;
     color:var(--ink-soft); transition:background 0.2s ease, color 0.2s ease;
     white-space:nowrap;
   }
-  nav.links a:hover, nav.links a:focus-visible{ background:var(--mint); color:var(--teal-dark); }
+  nav.links a:hover, nav.links a:focus-visible{ background:var(--mint); color:var(--teal-text); }
   nav.links a.cta-link{ background:var(--coral); color:#fff; margin-left:6px; }
   nav.links a.cta-link:hover{ background:var(--coral-dark); color:#fff; }
+
+  /* ---------- THEME TOGGLE ---------- */
+  .theme-toggle{
+    display:flex; align-items:center; gap:2px;
+    background:var(--mint);
+    border:1px solid var(--line);
+    border-radius:999px;
+    padding:4px;
+    flex-shrink:0;
+  }
+  .theme-toggle button{
+    width:34px; height:34px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    border:none; background:transparent; cursor:pointer;
+    color:var(--ink-soft);
+    transition:background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+  }
+  .theme-toggle button svg{ width:17px; height:17px; }
+  .theme-toggle button:hover{ color:var(--teal-text); }
+  .theme-toggle button.active{
+    background:var(--white);
+    color:var(--teal-text);
+    box-shadow:0 6px 14px -6px rgba(6,60,64,0.35);
+  }
+  :root[data-theme="dark"] .theme-toggle button.active{ color:var(--gold); }
+
+  /* Single cycling theme button shown only on mobile: system -> dark -> light -> system */
+  .theme-toggle-mobile{
+    display:none;
+    width:40px; height:40px; border-radius:12px;
+    align-items:center; justify-content:center;
+    background:var(--mint); border:1px solid var(--line);
+    color:var(--ink-soft); cursor:pointer; flex-shrink:0;
+    transition:background 0.2s ease, color 0.2s ease;
+  }
+  .theme-toggle-mobile:hover{ color:var(--teal-text); }
+  .theme-toggle-mobile svg{ width:19px; height:19px; display:none; }
+  .theme-toggle-mobile[data-pref="system"] .icon-system{ display:block; }
+  .theme-toggle-mobile[data-pref="dark"] .icon-dark{ display:block; }
+  .theme-toggle-mobile[data-pref="light"] .icon-light{ display:block; }
 
   .nav-scrim{ display:none; }
 
@@ -136,7 +211,7 @@
     background:var(--white); cursor:pointer; align-items:center; justify-content:center;
     flex-direction:column; gap:5px;
   }
-  .burger span{ width:20px; height:2px; background:var(--teal-dark); border-radius:2px; transition:transform .25s ease, opacity .25s ease; }
+  .burger span{ width:20px; height:2px; background:var(--teal-text); border-radius:2px; transition:transform .25s ease, opacity .25s ease; }
   .burger.open span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
   .burger.open span:nth-child(2){ opacity:0; }
   .burger.open span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
@@ -154,7 +229,7 @@
   }
   .eyebrow-pill{
     display:inline-flex; align-items:center; gap:8px;
-    background:var(--mint); color:var(--teal-dark);
+    background:var(--mint); color:var(--teal-text);
     padding:8px 16px 8px 8px; border-radius:999px; font-weight:700; font-size:0.82rem;
     margin-bottom:22px; border:1px solid var(--line);
   }
@@ -185,7 +260,7 @@
 
   .hero-stats{ display:flex; gap:clamp(18px,4vw,40px); flex-wrap:wrap; }
   .hero-stats div strong{
-    display:block; font-family:var(--ff-display); font-size:1.7rem; color:var(--teal-dark); font-weight:600;
+    display:block; font-family:var(--ff-display); font-size:1.7rem; color:var(--teal-text); font-weight:600;
   }
   .hero-stats div span{ font-size:0.85rem; color:var(--ink-soft); font-weight:600; }
 
@@ -210,7 +285,7 @@
   .hero-photo-frame .badge-tag{
     position:absolute; z-index:2; left:50%; bottom:-22px; transform:translateX(-50%);
     background:var(--white); border:1px solid var(--line); box-shadow:var(--shadow);
-    padding:10px 20px; border-radius:999px; font-weight:800; font-size:0.85rem; color:var(--teal-dark);
+    padding:10px 20px; border-radius:999px; font-weight:800; font-size:0.85rem; color:var(--teal-text);
     white-space:nowrap; display:flex; align-items:center; gap:8px;
   }
 
@@ -368,7 +443,7 @@
   .footer-social a:hover{ filter:brightness(1.15); }
 
   /* ---------- FOOTER ---------- */
-  footer.site-footer{ background:var(--ink); color:#CBD9D8; padding:56px 0 0; }
+  footer.site-footer{ background:var(--footer-bg); color:#CBD9D8; padding:56px 0 0; }
   .footer-top{
     display:grid; grid-template-columns:1.3fr 0.7fr 0.7fr 1fr; gap:36px; padding-bottom:40px;
     border-bottom:1px solid rgba(255,255,255,0.12);
@@ -406,7 +481,7 @@
     opacity:0; pointer-events:none; transform:translateY(10px);
     transition:opacity 0.25s ease, transform 0.25s ease; border:none; cursor:pointer; font-size:1.2rem;
   }
-  .to-top.show{ opacity:1; pointer-events:auto; transform:translateY(0); }
+  .to-top.show{ opacity:1; pointer-events:auto; }
 
   /* ---------- RESPONSIVE ---------- */
   @media (max-width:980px){
@@ -420,6 +495,9 @@
   }
 
   @media (max-width:760px){
+    .nav-right{ gap:8px; }
+    .theme-toggle{ display:none; }
+    .theme-toggle-mobile{ display:flex; }
     nav.links{
       position:fixed; left:0; right:0; top:var(--header-h, 73px); z-index:200;
       background:var(--paper); flex-direction:column; align-items:stretch;
@@ -457,6 +535,24 @@
     .hero-actions{ flex-direction:column; align-items:stretch; }
     .btn{ justify-content:center; }
   }
+
+  /* Small phones: keep the header on one tidy row (name, toggle, burger) */
+  @media (max-width:480px){
+    .nav-inner{ padding-top:10px; padding-bottom:10px; }
+    .brand{ gap:8px; min-width:0; }
+    .brand .mark{ width:36px; height:36px; font-size:1rem; border-radius:10px; }
+    .brand-text{ min-width:0; }
+    .brand-text{
+      font-size:0.92rem; line-height:1.15;
+      white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+      max-width:34vw; display:inline-block;
+    }
+    .brand-text small{ display:none; }
+    .nav-right{ gap:6px; }
+    .theme-toggle-mobile{ width:36px; height:36px; border-radius:10px; }
+    .theme-toggle-mobile svg{ width:17px; height:17px; }
+    .burger{ width:38px; height:38px; border-radius:10px; }
+  }
 </style>
 </head>
 <body>
@@ -470,15 +566,55 @@
       <span class="mark">RK</span>
       <span class="brand-text">Rupak Kumar Kushwaha<small>ACCA · DEVELOPER · YOUTUBER</small></span>
     </a>
-    <nav class="links" id="navLinks">
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#apps">My Apps</a>
-      <a href="#contact" class="cta-link">Contact</a>
-    </nav>
-    <button class="burger" id="burger" aria-label="Toggle menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
+
+    <div class="nav-right">
+      <nav class="links" id="navLinks">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#apps">My Apps</a>
+        <a href="#contact" class="cta-link">Contact</a>
+      </nav>
+
+      <!-- ===== Theme toggle: System / Dark / Light ===== -->
+      <div class="theme-toggle" id="themeToggle" role="group" aria-label="Theme switcher">
+        <button type="button" data-theme="system" title="System default" aria-label="Use system theme">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="4" width="18" height="12" rx="2"/>
+            <path d="M8 20h8M12 16v4"/>
+          </svg>
+        </button>
+        <button type="button" data-theme="dark" title="Dark mode" aria-label="Use dark theme">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M20.4 14.7A8.5 8.5 0 0 1 9.3 3.6a.6.6 0 0 0-.7-.8A9.5 9.5 0 1 0 21.2 15.4a.6.6 0 0 0-.8-.7z"/>
+          </svg>
+        </button>
+        <button type="button" data-theme="light" title="Light mode" aria-label="Use light theme">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M12 2v2M12 20v2M4 12H2M22 12h-2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- ===== Mobile: single button cycling System -> Dark -> Light -> System ===== -->
+      <button type="button" class="theme-toggle-mobile" id="themeToggleMobile" data-pref="system" aria-label="Theme: system (tap to change)" title="Tap to change theme">
+        <svg class="icon-system" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="4" width="18" height="12" rx="2"/>
+          <path d="M8 20h8M12 16v4"/>
+        </svg>
+        <svg class="icon-dark" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M20.4 14.7A8.5 8.5 0 0 1 9.3 3.6a.6.6 0 0 0-.7-.8A9.5 9.5 0 1 0 21.2 15.4a.6.6 0 0 0-.8-.7z"/>
+        </svg>
+        <svg class="icon-light" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="4"/>
+          <path d="M12 2v2M12 20v2M4 12H2M22 12h-2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"/>
+        </svg>
+      </button>
+
+      <button class="burger" id="burger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </div>
   <div class="nav-scrim" id="navScrim"></div>
 </header>
@@ -832,6 +968,47 @@
     toTop.classList.toggle('show', window.scrollY > 420);
   });
   toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+  // ---------- THEME TOGGLE (System / Dark / Light) ----------
+  const THEME_KEY = 'a2z-theme';
+  const THEME_CYCLE = ['system', 'dark', 'light'];
+  const themeToggle = document.getElementById('themeToggle');
+  const themeButtons = themeToggle.querySelectorAll('button');
+  const themeToggleMobile = document.getElementById('themeToggleMobile');
+  const systemMedia = window.matchMedia('(prefers-color-scheme: dark)');
+
+  function resolveTheme(pref){
+    return pref === 'system' ? (systemMedia.matches ? 'dark' : 'light') : pref;
+  }
+
+  function applyTheme(pref){
+    document.documentElement.setAttribute('data-theme', resolveTheme(pref));
+    themeButtons.forEach(b => b.classList.toggle('active', b.dataset.theme === pref));
+    themeToggleMobile.setAttribute('data-pref', pref);
+    themeToggleMobile.setAttribute('aria-label', 'Theme: ' + pref + ' (tap to change)');
+    localStorage.setItem(THEME_KEY, pref);
+  }
+
+  themeButtons.forEach(btn => {
+    btn.addEventListener('click', () => applyTheme(btn.dataset.theme));
+  });
+
+  // Mobile: one button, tap cycles system -> dark -> light -> system, icon auto-updates
+  themeToggleMobile.addEventListener('click', () => {
+    const current = localStorage.getItem(THEME_KEY) || 'system';
+    const next = THEME_CYCLE[(THEME_CYCLE.indexOf(current) + 1) % THEME_CYCLE.length];
+    applyTheme(next);
+  });
+
+  // Follow OS changes live when the user has chosen "system"
+  systemMedia.addEventListener('change', () => {
+    if ((localStorage.getItem(THEME_KEY) || 'system') === 'system'){
+      applyTheme('system');
+    }
+  });
+
+  // Sync the active button state on load with whatever was saved earlier
+  applyTheme(localStorage.getItem(THEME_KEY) || 'system');
 </script>
 
 </body>
