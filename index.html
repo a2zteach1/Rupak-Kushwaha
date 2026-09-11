@@ -5,650 +5,833 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
 <title>Rupak Kushwaha ✨</title>
 <link rel="shortcut icon" href="image/logo.png" type="image/x-icon">
-     
+
 <!-- Google Search Engine ke liye Full URL wala Tag -->
 <link rel="icon" href="https://www.rupakkushwaha.com.np/image/logo.png" type="image/png">
 
 <!-- Mobile & Apple Devices ke liye -->
 <link rel="apple-touch-icon" href="https://www.rupakkushwaha.com.np/image/logo.png">
-     
+
+<meta name="description" content="Official profile of Rupak Kumar Kushwaha — ACCA Accountant, Mobile & Web Developer, Founder of A2Z Teach YouTube Channel">
+
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2303237000800370"
      crossorigin="anonymous"></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
 <style>
   :root{
-    --pink:#ff3d9a;
-    --orange:#ff8a3d;
-    --yellow:#ffd23f;
-    --green:#2ee6a6;
-    --blue:#3d9dff;
-    --purple:#9b5cff;
-    --ink:#1a1633;
-    --card:rgba(255,255,255,0.85);
+    --teal-deep:   #0B5E63;
+    --teal-dark:   #063C40;
+    --mint:        #E7F5EF;
+    --mint-soft:   #F4FBF8;
+    --coral:       #FF6B5B;
+    --coral-dark:  #E5503F;
+    --gold:        #F5A623;
+    --violet:      #7B5CFF;
+    --ink:         #14282A;
+    --ink-soft:    #46605F;
+    --paper:       #FDFBF6;
+    --white:       #ffffff;
+    --line:        rgba(11,94,99,0.14);
+    --shadow:      0 18px 40px -18px rgba(6,60,64,0.35);
+    --radius-lg:   26px;
+    --radius-sm:   14px;
+    --ff-display:  'Fraunces', serif;
+    --ff-body:     'Manrope', sans-serif;
   }
 
-  *{box-sizing:border-box; margin:0; padding:0;}
-
-  html{-webkit-text-size-adjust:100%;}
-  html,body{height:100%;}
-
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html{ scroll-behavior:smooth; }
   body{
-    font-family:'Trebuchet MS','Segoe UI',sans-serif;
+    font-family:var(--ff-body);
     color:var(--ink);
-    min-height:100vh;
+    background:var(--paper);
+    -webkit-font-smoothing:antialiased;
     overflow-x:hidden;
-    background:
-      radial-gradient(circle at 15% 20%, var(--pink) 0%, transparent 40%),
-      radial-gradient(circle at 85% 15%, var(--blue) 0%, transparent 40%),
-      radial-gradient(circle at 25% 85%, var(--yellow) 0%, transparent 40%),
-      radial-gradient(circle at 80% 80%, var(--green) 0%, transparent 40%),
-      radial-gradient(circle at 50% 50%, var(--purple) 0%, transparent 55%),
-      #140f2b;
-    background-size:200% 200%;
-    animation: bgshift 18s ease-in-out infinite;
+  }
+  img{ max-width:100%; display:block; }
+  a{ color:inherit; text-decoration:none; }
+  ul{ list-style:none; }
+  section{ position:relative; }
+  .wrap{
     width:100%;
+    max-width:1180px;
+    margin:0 auto;
+    padding:0 clamp(20px,5vw,48px);
+  }
+  ::selection{ background:var(--coral); color:#fff; }
+
+  a:focus-visible, button:focus-visible{
+    outline:3px solid var(--gold);
+    outline-offset:3px;
+    border-radius:6px;
   }
 
-  img,svg{max-width:100%;display:block;}
-
-  @keyframes bgshift{
-    0%{background-position:0% 0%;}
-    50%{background-position:100% 100%;}
-    100%{background-position:0% 0%;}
+  @media (prefers-reduced-motion: reduce){
+    *{ animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important; }
   }
 
-  .blob{
-    position:fixed;
-    border-radius:50%;
-    filter:blur(60px);
-    opacity:.55;
-    z-index:0;
-    pointer-events:none;
-  }
-  .blob1{width:280px;height:280px;background:var(--pink);top:-80px;left:-80px;animation:float1 12s ease-in-out infinite;}
-  .blob2{width:320px;height:320px;background:var(--blue);bottom:-100px;right:-100px;animation:float2 14s ease-in-out infinite;}
-  .blob3{width:220px;height:220px;background:var(--yellow);bottom:20%;left:10%;animation:float1 10s ease-in-out infinite reverse;}
-
-  @keyframes float1{0%,100%{transform:translateY(0) translateX(0);} 50%{transform:translateY(40px) translateX(30px);}}
-  @keyframes float2{0%,100%{transform:translateY(0) translateX(0);} 50%{transform:translateY(-30px) translateX(-40px);}}
-
-  header{
-    position:relative;
-    z-index:2;
-    text-align:center;
-    padding:clamp(24px,6vw,38px) 16px 8px;
+  /* ---------- Decorative background texture ---------- */
+  .grain-bg{
+    position:fixed; inset:0; pointer-events:none; z-index:0; opacity:0.5;
+    background-image:
+      radial-gradient(circle at 10% 20%, rgba(11,94,99,0.05) 0, transparent 45%),
+      radial-gradient(circle at 90% 10%, rgba(255,107,91,0.07) 0, transparent 40%),
+      radial-gradient(circle at 80% 90%, rgba(245,166,35,0.06) 0, transparent 45%);
   }
 
-  header h1{
-    font-size:clamp(1.5rem, 6vw, 3rem);
-    background:linear-gradient(90deg,var(--pink),var(--orange),var(--yellow),var(--green),var(--blue),var(--purple));
-    background-size:300% auto;
-    -webkit-background-clip:text;
-    background-clip:text;
-    color:transparent;
-    animation:hue 6s linear infinite;
-    letter-spacing:1px;
-    line-height:1.25;
-    word-break:break-word;
+  /* ---------- NAV ---------- */
+  header.site-nav{
+    position:fixed; top:0; left:0; right:0; width:100%; z-index:100;
+    border-bottom:1px solid var(--line);
+  }
+  header.site-nav::before{
+    content:""; position:absolute; inset:0; z-index:-1;
+    background:rgba(253,251,246,0.86);
+    backdrop-filter:blur(10px);
+    -webkit-backdrop-filter:blur(10px);
+  }
+  body{ padding-top:var(--header-h, 74px); }
+  section{ scroll-margin-top:var(--header-h, 74px); }
+  .nav-inner{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:14px clamp(20px,5vw,48px);
+    max-width:1180px; margin:0 auto;
+  }
+  .brand{
+    display:flex; align-items:center; gap:12px;
+    font-family:var(--ff-display); font-weight:600; font-size:1.15rem;
+    color:var(--teal-dark);
+  }
+  .brand .mark{
+    width:42px; height:42px; border-radius:12px;
+    background:linear-gradient(135deg,var(--teal-deep),var(--teal-dark));
+    display:flex; align-items:center; justify-content:center;
+    color:#fff; font-family:var(--ff-display); font-weight:700; font-size:1.15rem;
+    box-shadow:0 8px 18px -6px rgba(6,60,64,0.55);
+    flex-shrink:0;
+  }
+  .brand .brand-text small{
+    display:block; font-family:var(--ff-body); font-weight:600; font-size:0.66rem;
+    letter-spacing:0.02em; color:var(--coral-dark); margin-top:1px;
   }
 
-  @keyframes hue{
-    0%{background-position:0% center;}
-    100%{background-position:300% center;}
-  }
-
-  header p{
-    color:#f1eaff;
-    margin-top:8px;
-    font-size:clamp(.85rem,2.5vw,1.05rem);
-    opacity:.9;
-    padding:0 8px;
-  }
-
-  nav{
-    position:sticky;
-    top:0;
-    z-index:10;
-    display:flex;
-    justify-content:center;
-    gap:10px;
-    padding:14px 10px;
-    flex-wrap:wrap;
-    backdrop-filter:blur(6px);
-  }
-
-  .tab-btn{
-    border:none;
-    cursor:pointer;
-    padding:11px 22px;
-    font-size:.95rem;
-    font-weight:700;
-    color:#fff;
-    border-radius:50px;
-    background:linear-gradient(135deg, rgba(255,255,255,0.12), rgba(255,255,255,0.05));
-    border:2px solid rgba(255,255,255,0.35);
-    transition:transform .25s ease, box-shadow .25s ease, background .25s ease;
-    letter-spacing:.5px;
+  nav.links{ display:flex; align-items:center; gap:2px; }
+  nav.links a{
+    padding:10px 16px; border-radius:999px; font-weight:600; font-size:0.94rem;
+    color:var(--ink-soft); transition:background 0.2s ease, color 0.2s ease;
     white-space:nowrap;
   }
+  nav.links a:hover, nav.links a:focus-visible{ background:var(--mint); color:var(--teal-dark); }
+  nav.links a.cta-link{ background:var(--coral); color:#fff; margin-left:6px; }
+  nav.links a.cta-link:hover{ background:var(--coral-dark); color:#fff; }
 
-  .tab-btn:hover{
-    transform:translateY(-3px) scale(1.04);
-    box-shadow:0 10px 25px rgba(0,0,0,0.25);
-  }
+  .nav-scrim{ display:none; }
 
-  .tab-btn.active{
-    background:linear-gradient(135deg,var(--pink),var(--purple),var(--blue));
-    border-color:transparent;
-    box-shadow:0 10px 30px rgba(255,61,154,0.45);
+  .burger{
+    display:none; width:44px; height:44px; border-radius:12px; border:1px solid var(--line);
+    background:var(--white); cursor:pointer; align-items:center; justify-content:center;
+    flex-direction:column; gap:5px;
   }
+  .burger span{ width:20px; height:2px; background:var(--teal-dark); border-radius:2px; transition:transform .25s ease, opacity .25s ease; }
+  .burger.open span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
+  .burger.open span:nth-child(2){ opacity:0; }
+  .burger.open span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
 
-  main{
-    position:relative;
-    z-index:2;
-    max-width:1100px;
-    margin:0 auto;
-    padding:16px clamp(14px,4vw,24px) 70px;
-    width:100%;
+  /* ---------- HERO ---------- */
+  .hero{
+    padding:clamp(56px,9vw,108px) 0 clamp(48px,7vw,84px);
+    background:
+      radial-gradient(1100px 480px at 78% -10%, rgba(11,94,99,0.10), transparent 60%),
+      radial-gradient(700px 400px at 0% 110%, rgba(255,107,91,0.10), transparent 60%);
   }
-
-  .tab-panel{
-    display:none;
-    animation:fadeUp .5s ease;
-  }
-  .tab-panel.active{display:block;}
-
-  @keyframes fadeUp{
-    from{opacity:0; transform:translateY(16px);}
-    to{opacity:1; transform:translateY(0);}
-  }
-
-  /* ---------- HOME ---------- */
-  .hero-card{
-    background:var(--card);
-    border-radius:28px;
-    padding:clamp(26px,5vw,44px) clamp(18px,5vw,34px);
-    text-align:center;
-    box-shadow:0 20px 50px rgba(0,0,0,0.35);
-    position:relative;
-    overflow:hidden;
-  }
-  .hero-card::before{
-    content:"";
-    position:absolute;
-    inset:0;
-    background:linear-gradient(120deg, rgba(255,61,154,.15), rgba(61,157,255,.15), rgba(46,230,166,.15));
-    z-index:0;
-  }
-  .hero-inner{position:relative; z-index:1;}
-
-  .avatar{
-    width:clamp(90px,20vw,120px);height:clamp(90px,20vw,120px);
-    border-radius:50%;
-    margin:0 auto 18px;
-    background:conic-gradient(from 90deg,var(--pink),var(--orange),var(--yellow),var(--green),var(--blue),var(--purple),var(--pink));
-    display:flex;align-items:center;justify-content:center;
-    font-size:clamp(2rem,6vw,2.6rem);
-    box-shadow:0 10px 30px rgba(0,0,0,0.25);
-  }
-  .avatar span{
-    background:#fff;
-    width:86%;height:86%;
-    border-radius:50%;
-    display:flex;align-items:center;justify-content:center;
-  }
-
-  .hero-card h2{
-    font-size:clamp(1.3rem,5vw,2.4rem);
-    margin-bottom:8px;
-    color:var(--ink);
-    word-break:break-word;
-  }
-  .hero-card .subrole{
-    font-weight:700;
-    color:var(--pink);
-    margin-bottom:14px;
-    font-size:clamp(.85rem,2.5vw,1rem);
-  }
-  .hero-card p.desc{
-    max-width:600px;
-    margin:0 auto 22px;
-    color:#3a3358;
-    line-height:1.6;
-    font-size:clamp(.88rem,2.3vw,1rem);
-  }
-
-  .cta-row{display:flex; gap:14px; justify-content:center; flex-wrap:wrap;}
-  .cta{
-    padding:12px 24px;
-    border-radius:50px;
-    font-weight:700;
-    text-decoration:none;
-    color:#fff;
-    box-shadow:0 8px 20px rgba(0,0,0,0.2);
-    transition:transform .2s ease;
-    font-size:.92rem;
-    border:none;
-    cursor:pointer;
-  }
-  .cta:hover{transform:translateY(-3px) scale(1.05);}
-  .cta.one{background:linear-gradient(135deg,var(--pink),var(--purple));}
-  .cta.two{background:linear-gradient(135deg,var(--blue),var(--green));}
-  .cta.three{background:linear-gradient(135deg,#ff0000,var(--orange));}
-
-  .highlights{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-    gap:18px;
-    margin-top:30px;
-  }
-  .highlight{
-    background:var(--card);
-    border-radius:20px;
-    padding:22px 16px;
-    text-align:center;
-    box-shadow:0 12px 30px rgba(0,0,0,0.25);
-    transition:transform .25s ease;
-  }
-  .highlight:hover{transform:translateY(-6px);}
-  .highlight .emoji{font-size:1.8rem; margin-bottom:8px;}
-  .highlight h3{margin-bottom:6px; color:var(--ink); font-size:1.02rem;}
-  .highlight p{color:#4a4368; font-size:.88rem; line-height:1.4;}
-
-  .company-banner{
-    margin-top:30px;
-    background:linear-gradient(135deg,var(--purple),var(--pink));
-    border-radius:22px;
-    padding:26px 22px;
-    text-align:center;
-    color:#fff;
-    box-shadow:0 16px 34px rgba(0,0,0,0.3);
-  }
-  .company-banner h3{font-size:clamp(1.1rem,3.5vw,1.4rem); margin-bottom:6px;}
-  .company-banner p{font-size:.9rem; opacity:.92; max-width:560px; margin:0 auto;}
-
-  /* ---------- MY APPS ---------- */
-  .section-title{
-    text-align:center;
-    color:#fff;
-    font-size:clamp(1.3rem,4vw,2.1rem);
-    margin-bottom:6px;
-    text-shadow:0 4px 20px rgba(0,0,0,0.4);
-  }
-  .section-sub{
-    text-align:center;
-    color:#e9e3ff;
-    margin-bottom:26px;
-    opacity:.85;
-    font-size:clamp(.82rem,2.2vw,1rem);
-    padding:0 8px;
-  }
-
-  .apps-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fill,minmax(160px,1fr));
-    gap:18px;
-  }
-
-  .app-box{
-    position:relative;
-    border:none;
-    cursor:pointer;
-    border-radius:22px;
-    padding:24px 14px 18px;
-    color:#fff;
-    text-align:center;
-    font-weight:700;
-    font-size:1rem;
-    min-height:140px;
-    display:flex;
-    flex-direction:column;
+  .hero .wrap{
+    display:grid; grid-template-columns:1.15fr 0.85fr; gap:clamp(32px,6vw,64px);
     align-items:center;
-    justify-content:center;
-    gap:8px;
-    box-shadow:0 14px 30px rgba(0,0,0,0.3);
-    transition:transform .25s ease, box-shadow .25s ease;
-    overflow:hidden;
-    width:100%;
   }
-  .app-box::after{
-    content:"";
-    position:absolute;
-    inset:0;
-    background:linear-gradient(160deg, rgba(255,255,255,0.25), rgba(255,255,255,0));
+  .eyebrow-pill{
+    display:inline-flex; align-items:center; gap:8px;
+    background:var(--mint); color:var(--teal-dark);
+    padding:8px 16px 8px 8px; border-radius:999px; font-weight:700; font-size:0.82rem;
+    margin-bottom:22px; border:1px solid var(--line);
   }
-  .app-box:hover{
-    transform:translateY(-8px) scale(1.04) rotate(-1deg);
-    box-shadow:0 20px 40px rgba(0,0,0,0.4);
+  .eyebrow-pill .dot{ width:9px; height:9px; border-radius:50%; background:var(--coral); }
+  .hero h1{
+    font-family:var(--ff-display); font-weight:600; line-height:1.06;
+    font-size:clamp(2.2rem,4.6vw,3.5rem); margin:0 0 20px; color:var(--ink);
+    letter-spacing:-0.01em;
   }
-  .app-box .icon{
-    font-size:2.2rem;
-    z-index:1;
+  .hero h1 .accent{ font-style:italic; color:var(--teal-deep); font-weight:600; }
+  .hero p.lead{
+    font-size:1.12rem; line-height:1.72; color:var(--ink-soft); max-width:54ch; margin:0 0 30px;
   }
-  .app-box .name{position:relative; z-index:1; word-break:break-word;}
-  .app-box .tag{
-    position:relative; z-index:1;
-    font-size:.68rem;
-    font-weight:600;
-    background:rgba(255,255,255,0.25);
-    padding:3px 10px;
-    border-radius:20px;
-    letter-spacing:.5px;
-    text-transform:uppercase;
+  .hero-actions{ display:flex; flex-wrap:wrap; gap:14px; margin-bottom:36px; }
+
+  .btn{
+    display:inline-flex; align-items:center; gap:10px; padding:14px 26px;
+    border-radius:999px; font-weight:700; font-size:0.98rem; cursor:pointer;
+    border:2px solid transparent; transition:transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
   }
+  .btn:hover{ transform:translateY(-2px); }
+  .btn-primary{ background:var(--coral); color:#fff; box-shadow:0 14px 26px -10px rgba(255,107,91,0.6); }
+  .btn-primary:hover{ background:var(--coral-dark); }
+  .btn-outline{ background:transparent; border-color:var(--teal-deep); color:var(--teal-deep); }
+  .btn-outline:hover{ background:var(--teal-deep); color:#fff; }
+  .btn-yt{ background:#FF0000; color:#fff; box-shadow:0 14px 26px -10px rgba(255,0,0,0.5); }
+  .btn-yt:hover{ background:#cc0000; }
+
+  .hero-stats{ display:flex; gap:clamp(18px,4vw,40px); flex-wrap:wrap; }
+  .hero-stats div strong{
+    display:block; font-family:var(--ff-display); font-size:1.7rem; color:var(--teal-dark); font-weight:600;
+  }
+  .hero-stats div span{ font-size:0.85rem; color:var(--ink-soft); font-weight:600; }
+
+  .hero-photo-frame{ position:relative; justify-self:center; width:100%; max-width:340px; }
+  .hero-photo-frame .ring{
+    position:absolute; inset:-16px; border-radius:36px;
+    background:linear-gradient(135deg,var(--gold),var(--coral) 55%,var(--teal-deep));
+    opacity:0.9; z-index:0;
+  }
+  .hero-photo-frame .photo-box{
+    position:relative; z-index:1; border-radius:28px; overflow:hidden;
+    aspect-ratio:4/5;
+    border:6px solid var(--paper); box-shadow:var(--shadow);
+    background:conic-gradient(from 90deg,var(--coral),var(--gold),var(--mint),var(--teal-deep),var(--violet),var(--coral));
+    display:flex; align-items:center; justify-content:center;
+  }
+  .hero-photo-frame .photo-box .emoji-avatar{
+    width:82%; height:82%; border-radius:22px; background:var(--paper);
+    display:flex; align-items:center; justify-content:center;
+    font-size:clamp(2.6rem, 12vw, 5rem);
+  }
+  .hero-photo-frame .badge-tag{
+    position:absolute; z-index:2; left:50%; bottom:-22px; transform:translateX(-50%);
+    background:var(--white); border:1px solid var(--line); box-shadow:var(--shadow);
+    padding:10px 20px; border-radius:999px; font-weight:800; font-size:0.85rem; color:var(--teal-dark);
+    white-space:nowrap; display:flex; align-items:center; gap:8px;
+  }
+
+  /* ---------- SECTION HEADERS ---------- */
+  .section-head{ max-width:640px; margin:0 0 44px; }
+  .section-head .tag{
+    display:inline-block; font-weight:700; font-size:0.82rem; color:var(--coral-dark);
+    background:rgba(255,107,91,0.1); padding:6px 14px; border-radius:999px; margin-bottom:16px;
+  }
+  .section-head h2{
+    font-family:var(--ff-display); font-weight:600; font-size:clamp(1.8rem,3.4vw,2.5rem);
+    margin:0 0 14px; color:var(--ink); line-height:1.12;
+  }
+  .section-head p{ color:var(--ink-soft); font-size:1.04rem; line-height:1.7; margin:0; }
 
   /* ---------- ABOUT ---------- */
-  .about-card{
-    background:var(--card);
-    border-radius:28px;
-    padding:clamp(24px,5vw,38px) clamp(18px,5vw,32px);
-    box-shadow:0 20px 50px rgba(0,0,0,0.35);
+  .about{ padding:clamp(56px,8vw,96px) 0; background:var(--mint-soft); }
+  .about-grid{ display:grid; grid-template-columns:0.8fr 1.2fr; gap:clamp(36px,6vw,64px); align-items:start; }
+  .about-photo{
+    position:relative; border-radius:var(--radius-lg); overflow:hidden;
+    box-shadow:var(--shadow); border:1px solid var(--line);
+    aspect-ratio:3/4; background:linear-gradient(160deg,var(--teal-deep),var(--teal-dark));
+    display:flex; align-items:center; justify-content:center;
+    padding:10% 8% 32%; box-sizing:border-box;
   }
-  .about-top{
-    display:flex;
-    align-items:center;
-    gap:18px;
-    flex-wrap:wrap;
-    margin-bottom:22px;
+  .about-photo .emoji-avatar{ font-size:clamp(2.6rem, 14vw, 6rem); line-height:1; }
+  .about-photo .cred-strip{
+    position:absolute; left:0; right:0; bottom:0;
+    background:linear-gradient(0deg,rgba(6,60,64,0.95) 40%,rgba(6,60,64,0));
+    color:#fff; padding:34px 20px 18px; font-family:var(--ff-display); font-size:clamp(1rem,3.4vw,1.15rem); font-weight:600;
+    line-height:1.3;
   }
-  .about-top .avatar{width:80px;height:80px; margin:0; flex-shrink:0;}
-  .about-top .avatar span{width:86%;height:86%; font-size:1.8rem;}
-  .about-top h2{color:var(--ink); font-size:clamp(1.3rem,4vw,1.7rem); word-break:break-word;}
-  .about-top p.role{color:var(--pink); font-weight:700; margin-top:4px; font-size:clamp(.82rem,2.3vw,.95rem);}
-  .about-top p.role2{color:var(--blue); font-weight:700; font-size:clamp(.78rem,2.1vw,.88rem); margin-top:2px;}
+  .about-photo .cred-strip small{
+    display:block; font-family:var(--ff-body); font-weight:600; font-size:0.8rem; color:#CDEFE7; margin-top:4px;
+  }
+  .about-copy h3{ font-family:var(--ff-display); font-weight:600; font-size:1.6rem; margin:0 0 16px; color:var(--ink); }
+  .about-copy p{ color:var(--ink-soft); line-height:1.8; font-size:1.02rem; margin:0 0 18px; }
 
-  .about-card p.bio{
-    color:#3a3358;
-    line-height:1.75;
-    margin-bottom:24px;
-    font-size:clamp(.88rem,2.3vw,1rem);
+  .credential-list{ display:grid; grid-template-columns:1fr 1fr; gap:14px; margin:28px 0 0; }
+  .credential-list li{
+    background:var(--white); border:1px solid var(--line); border-radius:var(--radius-sm);
+    padding:16px 18px; display:flex; gap:12px; align-items:flex-start; box-shadow:0 10px 22px -16px rgba(6,60,64,0.25);
+  }
+  .credential-list .ico{
+    width:36px; height:36px; border-radius:10px; flex-shrink:0;
+    display:flex; align-items:center; justify-content:center; color:#fff; font-size:1rem;
+    background:linear-gradient(135deg,var(--coral),var(--gold));
+  }
+  .credential-list b{ display:block; font-size:0.92rem; color:var(--ink); }
+  .credential-list span{ font-size:0.82rem; color:var(--ink-soft); }
+
+  .org-card{
+    margin-top:26px;
+    background:linear-gradient(135deg, rgba(11,94,99,0.08), rgba(255,107,91,0.08));
+    border:1px solid var(--line);
+    border-radius:var(--radius-sm);
+    padding:20px 22px;
+  }
+  .org-card h4{
+    font-size:0.76rem; text-transform:uppercase; letter-spacing:0.6px;
+    color:var(--coral-dark); font-weight:700; margin-bottom:8px;
+  }
+  .org-card h5{ font-family:var(--ff-display); font-size:1.2rem; color:var(--ink); margin-bottom:8px; font-weight:600; }
+  .org-card p{ color:var(--ink-soft); font-size:0.92rem; line-height:1.6; margin:0; }
+
+  .skills{ display:flex; flex-wrap:wrap; gap:9px; margin-top:26px; }
+  .skill-chip{ padding:8px 15px; border-radius:50px; font-size:0.82rem; font-weight:700; color:#fff; }
+
+  /* ---------- SERVICES / HIGHLIGHTS ---------- */
+  .services{ padding:clamp(56px,8vw,96px) 0; }
+  .service-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:22px; }
+  .service-card{
+    background:var(--white); border:1px solid var(--line); border-radius:var(--radius-lg);
+    padding:30px 26px; box-shadow:0 16px 32px -22px rgba(6,60,64,0.3);
+    transition:transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .service-card:hover{ transform:translateY(-6px); box-shadow:0 22px 38px -18px rgba(6,60,64,0.35); }
+  .service-card .icon-badge{
+    width:52px; height:52px; border-radius:14px; display:flex; align-items:center; justify-content:center;
+    font-size:1.4rem; color:#fff; margin-bottom:18px;
+  }
+  .service-card:nth-child(1) .icon-badge{ background:linear-gradient(135deg,var(--teal-deep),#0f8a8f); }
+  .service-card:nth-child(2) .icon-badge{ background:linear-gradient(135deg,var(--coral),var(--coral-dark)); }
+  .service-card:nth-child(3) .icon-badge{ background:linear-gradient(135deg,var(--gold),#e08e00); }
+  .service-card:nth-child(4) .icon-badge{ background:linear-gradient(135deg,var(--violet),#5b3fd6); }
+  .service-card h3{ font-family:var(--ff-display); font-size:1.14rem; margin:0 0 10px; color:var(--ink); font-weight:600; }
+  .service-card p{ font-size:0.92rem; color:var(--ink-soft); line-height:1.6; margin:0; }
+
+  /* ---------- APPS ---------- */
+  .apps{ padding:clamp(56px,8vw,96px) 0; background:var(--teal-dark); color:#fff; }
+  .apps .section-head h2, .apps .section-head p{ color:#fff; }
+  .apps .section-head p{ color:#B9DDD9; }
+  .apps .section-head .tag{ background:rgba(255,255,255,0.12); color:#F5C9C2; }
+
+  .apps-grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(190px,1fr)); gap:18px; }
+  .app-card{
+    display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px;
+    text-align:center; border:none; cursor:pointer; border-radius:var(--radius-sm);
+    padding:26px 16px 20px; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.14);
+    color:#fff; transition:transform 0.22s ease, background 0.22s ease, border-color 0.22s ease;
+    font-family:var(--ff-body); min-height:150px;
+  }
+  .app-card:hover{ transform:translateY(-6px); background:rgba(255,255,255,0.12); border-color:rgba(255,255,255,0.3); }
+  .app-card .icon{
+    width:52px; height:52px; border-radius:14px; display:flex; align-items:center; justify-content:center;
+    font-size:1.4rem;
+  }
+  .app-card .name{ font-weight:700; font-size:0.96rem; line-height:1.35; }
+  .app-card .tag-pill{
+    font-size:0.68rem; font-weight:700; letter-spacing:0.3px;
+    background:rgba(255,255,255,0.14); padding:4px 12px; border-radius:999px; color:#F5C9C2;
   }
 
-  .company-card{
-    background:linear-gradient(135deg, rgba(155,92,255,0.12), rgba(255,61,154,0.12));
-    border:2px solid rgba(155,92,255,0.3);
-    border-radius:18px;
-    padding:18px 20px;
-    margin-bottom:24px;
+  /* ---------- CONTACT ---------- */
+  .contact{ padding:clamp(56px,8vw,96px) 0; }
+  .contact-card{
+    background:linear-gradient(160deg,var(--teal-deep),var(--teal-dark));
+    color:#fff; border-radius:var(--radius-lg); box-shadow:var(--shadow);
+    padding:clamp(32px,6vw,56px);
+    display:grid; grid-template-columns:1.1fr 0.9fr; gap:clamp(28px,5vw,48px); align-items:center;
   }
-  .company-card h4{
-    color:var(--purple);
-    font-size:.78rem;
-    text-transform:uppercase;
-    letter-spacing:.6px;
-    margin-bottom:6px;
+  .contact-card h3{ font-family:var(--ff-display); font-size:1.7rem; margin:0 0 14px; font-weight:600; }
+  .contact-card > div > p{ color:#CFE9E5; line-height:1.75; margin:0 0 26px; font-size:0.98rem; max-width:48ch; }
+  .contact-detail{ display:flex; gap:14px; margin-bottom:18px; align-items:flex-start; }
+  .contact-detail .ico{
+    width:40px; height:40px; border-radius:11px; background:rgba(255,255,255,0.14);
+    display:flex; align-items:center; justify-content:center; flex-shrink:0; font-size:1.05rem;
   }
-  .company-card h3{
-    color:var(--ink);
-    font-size:clamp(1.1rem,3vw,1.35rem);
-    margin-bottom:6px;
-  }
-  .company-card p{
-    color:#3a3358;
-    font-size:.9rem;
-    line-height:1.55;
-  }
+  .contact-detail b{ display:block; font-size:0.92rem; }
+  .contact-detail span, .contact-detail a{ font-size:0.88rem; color:#CFE9E5; }
+  .contact-detail a:hover{ color:var(--gold); }
 
-  .info-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-    gap:14px;
-    margin-bottom:24px;
+  .connect-panel{
+    background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.16);
+    border-radius:var(--radius-sm); padding:26px 24px;
   }
-  .info-item{
-    background:rgba(255,255,255,0.6);
-    border-left:5px solid var(--purple);
-    border-radius:14px;
-    padding:12px 15px;
-  }
-  .info-item h4{font-size:.75rem; text-transform:uppercase; letter-spacing:.5px; color:var(--purple); margin-bottom:4px;}
-  .info-item p{color:var(--ink); font-weight:600; font-size:.92rem; word-break:break-word;}
-
-  .skills{
-    display:flex; flex-wrap:wrap; gap:9px; margin-bottom:24px;
-  }
-  .skill-chip{
-    padding:7px 14px;
-    border-radius:50px;
-    font-size:.8rem;
-    font-weight:700;
-    color:#fff;
-  }
-
-  .social-row{display:flex; gap:12px; flex-wrap:wrap;}
+  .connect-panel h4{ font-family:var(--ff-display); font-size:1.15rem; margin-bottom:16px; font-weight:600; }
+  .social-row{ display:flex; gap:10px; flex-wrap:wrap; }
   .social-row a{
-    text-decoration:none;
-    color:#fff;
-    padding:10px 18px;
-    border-radius:50px;
-    font-weight:700;
-    font-size:.85rem;
-    box-shadow:0 8px 20px rgba(0,0,0,0.2);
-    transition:transform .2s ease;
+    width:44px; height:44px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center; color:#fff;
+    border:1px solid rgba(255,255,255,0.2); transition:transform 0.2s ease, filter 0.2s ease;
   }
-  .social-row a:hover{transform:translateY(-3px);}
+  .social-row a svg{ width:19px; height:19px; }
+  .social-row a:hover{ transform:translateY(-4px); filter:brightness(1.12); }
 
-  footer{
-    position:relative;
-    z-index:2;
-    text-align:center;
-    padding:20px 12px;
-    color:#e9e3ff;
-    font-size:.8rem;
-    opacity:.75;
+  .ic-fb{ background:#1877F2; }
+  .ic-ig{ background:radial-gradient(circle at 30% 110%, #FFDB73 0%, #FD5949 45%, #D6249F 70%, #6A2CD8 100%); }
+  .ic-yt{ background:#FF0033; }
+  .ic-li{ background:#0077B5; }
+  .ic-web{ background:linear-gradient(135deg,var(--gold),var(--coral)); }
+
+  .footer-social a{ color:#fff; }
+  .footer-social a svg{ width:17px; height:17px; }
+  .footer-social a:hover{ filter:brightness(1.15); }
+
+  /* ---------- FOOTER ---------- */
+  footer.site-footer{ background:var(--ink); color:#CBD9D8; padding:56px 0 0; }
+  .footer-top{
+    display:grid; grid-template-columns:1.3fr 0.7fr 0.7fr 1fr; gap:36px; padding-bottom:40px;
+    border-bottom:1px solid rgba(255,255,255,0.12);
   }
-  footer a{
-    color:#fff;
-    text-decoration:underline;
-    margin-left:8px;
-    transition:opacity .2s ease;
+  .footer-brand{ display:flex; align-items:center; gap:12px; margin-bottom:14px; }
+  .footer-brand .mark{
+    width:40px; height:40px; border-radius:11px; background:linear-gradient(135deg,var(--coral),var(--gold));
+    display:flex; align-items:center; justify-content:center; color:#fff; font-family:var(--ff-display); font-weight:700;
   }
-  footer a:hover{
-    opacity:.8;
+  .footer-brand span{ font-family:var(--ff-display); font-size:1.08rem; color:#fff; font-weight:600; }
+  .footer-col p{ font-size:0.9rem; line-height:1.7; color:#9FB6B4; margin:0; }
+  .footer-col h5{ color:#fff; font-size:0.95rem; margin:0 0 16px; font-weight:700; }
+  .footer-col ul li{ margin-bottom:10px; }
+  .footer-col ul a{ font-size:0.9rem; color:#9FB6B4; transition:color 0.2s ease; }
+  .footer-col ul a:hover{ color:var(--gold); }
+  .footer-social{ display:flex; gap:10px; margin-top:16px; flex-wrap:wrap; }
+  .footer-social a{
+    width:38px; height:38px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    transition:filter 0.2s ease, transform 0.2s ease;
   }
+  .footer-social a:hover{ transform:translateY(-3px); }
+  .footer-bottom{
+    display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:10px;
+    padding:22px 0; font-size:0.84rem; color:#88A19E;
+  }
+  .footer-bottom a{ color:#88A19E; }
+  .footer-bottom a:hover{ color:var(--gold); }
+
+  /* back to top */
+  .to-top{
+    position:fixed; right:22px; bottom:22px; z-index:90;
+    width:48px; height:48px; border-radius:50%; background:var(--coral); color:#fff;
+    display:flex; align-items:center; justify-content:center; box-shadow:0 14px 26px -8px rgba(255,107,91,0.6);
+    opacity:0; pointer-events:none; transform:translateY(10px);
+    transition:opacity 0.25s ease, transform 0.25s ease; border:none; cursor:pointer; font-size:1.2rem;
+  }
+  .to-top.show{ opacity:1; pointer-events:auto; transform:translateY(0); }
 
   /* ---------- RESPONSIVE ---------- */
-  @media (max-width:600px){
-    nav{gap:8px; padding:10px 8px;}
-    .tab-btn{padding:9px 16px; font-size:.85rem;}
-    .cta-row{flex-direction:column; align-items:stretch;}
-    .cta{width:100%;}
-    .about-top{flex-direction:column; text-align:center;}
-    .social-row{justify-content:center;}
-    .apps-grid{grid-template-columns:repeat(auto-fill,minmax(130px,1fr)); gap:12px;}
-    .app-box{min-height:120px; padding:18px 10px 14px;}
-    .app-box .icon{font-size:1.8rem;}
+  @media (max-width:980px){
+    .hero .wrap{ grid-template-columns:1fr; }
+    .hero-photo-frame{ order:-1; max-width:260px; margin-bottom:10px; }
+    .about-grid{ grid-template-columns:1fr; }
+    .about-photo{ max-width:360px; margin:0 auto; }
+    .service-grid{ grid-template-columns:repeat(2,1fr); }
+    .contact-card{ grid-template-columns:1fr; }
+    .footer-top{ grid-template-columns:1fr 1fr; }
   }
 
-  @media (min-width:1200px){
-    main{max-width:1200px;}
+  @media (max-width:760px){
+    nav.links{
+      position:fixed; left:0; right:0; top:var(--header-h, 73px); z-index:200;
+      background:var(--paper); flex-direction:column; align-items:stretch;
+      padding:14px 16px 20px; gap:6px; max-height:calc(100vh - var(--header-h, 73px));
+      overflow-y:auto; -webkit-overflow-scrolling:touch;
+      border-bottom:1px solid var(--line);
+      box-shadow:0 22px 34px -18px rgba(6,60,64,0.35);
+      transform:translateY(-12px); opacity:0; visibility:hidden;
+      transition:transform 0.22s ease, opacity 0.22s ease, visibility 0.22s;
+    }
+    nav.links.open{ transform:translateY(0); opacity:1; visibility:visible; }
+    nav.links a{ padding:15px 16px; font-size:1.02rem; border-radius:12px; }
+    nav.links a:hover, nav.links a:focus-visible{ background:var(--mint); }
+    nav.links a.cta-link{ margin-left:0; text-align:center; margin-top:6px; }
+    .nav-scrim{
+      display:block; position:fixed; left:0; right:0; bottom:0;
+      top:var(--header-h, 73px); z-index:150;
+      background:rgba(6,60,64,0.28); opacity:0; pointer-events:none; transition:opacity 0.22s ease;
+    }
+    .nav-scrim.show{ opacity:1; pointer-events:auto; }
+    .burger{ display:flex; position:relative; z-index:210; }
+    .hero-stats{ gap:26px; }
+    .credential-list{ grid-template-columns:1fr; }
+    .service-grid{ grid-template-columns:1fr; }
+    .apps-grid{ grid-template-columns:repeat(auto-fill,minmax(140px,1fr)); gap:12px; }
+    .app-card{ min-height:130px; padding:18px 10px 14px; }
+    .app-card .icon{ width:44px; height:44px; font-size:1.2rem; }
+    .footer-top{ grid-template-columns:1fr; row-gap:30px; }
+    footer.site-footer{ padding-bottom:0; }
+    .footer-bottom{ padding-bottom:86px; flex-direction:column; align-items:flex-start; }
+    .to-top{ width:44px; height:44px; right:16px; bottom:16px; }
+  }
+
+  @media (max-width:420px){
+    .hero-actions{ flex-direction:column; align-items:stretch; }
+    .btn{ justify-content:center; }
   }
 </style>
 </head>
 <body>
 
-<div class="blob blob1"></div>
-<div class="blob blob2"></div>
-<div class="blob blob3"></div>
+<div class="grain-bg" aria-hidden="true"></div>
 
-<header>
-  <h1>✨ RUPAK KUMAR KUSHWAHA ✨</h1>
-  <p>• ACCA • Mobile & Web Developer • Founder of A2Z Teach YouTube Channel</p>
+<!-- ================= NAV ================= -->
+<header class="site-nav">
+  <div class="nav-inner">
+    <a href="#home" class="brand">
+      <span class="mark">RK</span>
+      <span class="brand-text">Rupak Kumar Kushwaha<small>ACCA · DEVELOPER · YOUTUBER</small></span>
+    </a>
+    <nav class="links" id="navLinks">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#apps">My Apps</a>
+      <a href="#contact" class="cta-link">Contact</a>
+    </nav>
+    <button class="burger" id="burger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="nav-scrim" id="navScrim"></div>
 </header>
 
-<nav>
-  <button class="tab-btn active" data-tab="home">🏠 Home</button>
-  <button class="tab-btn" data-tab="apps">🧩 My Apps</button>
-  <button class="tab-btn" data-tab="about">👤 About</button>
-</nav>
-
-<main>
-
-  <!-- HOME -->
-  <section id="home" class="tab-panel active">
-    <div class="hero-card">
-      <div class="hero-inner">
-        <div class="avatar"><span>🚀</span></div>
-        <h2>Hey, I'm Rupak Kumar Kushwaha 👋</h2>
-        <p class="subrole">ACCA Accountant &nbsp;|&nbsp; Mobile & Web Developer &nbsp;|&nbsp; Founder of A2Z Teach YouTube Channel</p>
-        <p class="desc">I blend numbers with code — an ACCA accountant by profession and a mobile & web
-        developer by passion, building with HTML, CSS, JavaScript & Flutter. I'm also the founder
-        of <strong>A2Z Teach</strong> YouTube Channel, where I share knowledge and build tools that help people learn and grow.</p>
-        <div class="cta-row">
-          <button class="cta one" onclick="switchTab('apps')">🧩 See My Apps</button>
-          <button class="cta two" onclick="switchTab('about')">👤 About Me</button>
-          <a class="cta three" href="https://youtube.com/@a2z-teach0" target="_blank" rel="noopener noreferrer">▶️ YouTube</a>
-        </div>
+<!-- ================= HOME / HERO ================= -->
+<section class="hero" id="home">
+  <div class="wrap">
+    <div class="hero-copy">
+      <span class="eyebrow-pill"><span class="dot"></span> Founder of A2Z Teach YouTube Channel</span>
+      <h1>Numbers, code &<br><span class="accent">everything in between</span></h1>
+      <p class="lead">
+        I blend numbers with code — an ACCA accountant by profession and a mobile & web
+        developer by passion, building with HTML, CSS, JavaScript & Flutter. I'm also the
+        founder of <strong>A2Z Teach</strong> YouTube Channel, where I share knowledge and
+        build tools that help people learn and grow.
+      </p>
+      <div class="hero-actions">
+        <a href="#apps" class="btn btn-primary">🧩 See my apps</a>
+        <a href="#about" class="btn btn-outline">👤 About me</a>
+        <a class="btn btn-yt" href="https://youtube.com/@a2z-teach0" target="_blank" rel="noopener noreferrer">▶️ YouTube</a>
+      </div>
+      <div class="hero-stats">
+        <div><strong id="appCountStat"></strong><span>Apps & tools built</span></div>
+        <div><strong>ACCA</strong><span>Qualified accountant</span></div>
+        <div><strong>A2Z Teach</strong><span>YouTube channel</span></div>
       </div>
     </div>
 
-    <div class="highlights">
-      <div class="highlight">
-        <div class="emoji">📊</div>
-        <h3>ACCA Accountant</h3>
-        <p>Professional finance & accounting expertise.</p>
+    <div class="hero-photo-frame">
+      <div class="ring" aria-hidden="true"></div>
+      <div class="photo-box">
+
+        <div class="emoji-avatar"><img src="image/logo.png"></div>
       </div>
-      <div class="highlight">
-        <div class="emoji">📱</div>
+      <div class="badge-tag">💻 Mobile & Web Developer</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section class="about" id="about">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="tag">About</span>
+      <h2>Get to know Rupak</h2>
+      <p>A short introduction to my background, work, and the organisation I've built along the way.</p>
+    </div>
+
+    <div class="about-grid">
+      <div class="about-photo">
+        <img src="image/rupak.png" alt="Portrait of Rupak Kushwaha"
+             onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 500%22%3E%3Crect width=%22400%22 height=%22500%22 fill=%22%23063C40%22/%3E%3Ccircle cx=%22200%22 cy=%22190%22 r=%2280%22 fill=%22%23F5A623%22/%3E%3Cellipse cx=%22200%22 cy=%22420%22 rx=%22150%22 ry=%22120%22 fill=%22%23F5A623%22/%3E%3C/svg%3E';">
+        <div class="cred-strip">
+          Rupak Kumar Kushwaha
+          <small>ACCA · Mobile & Web Developer</small>
+        </div>
+      </div>
+
+      <div class="about-copy">
+        <h3>Combining finance and technology, one build at a time</h3>
+        <p>
+          I'm Rupak Kumar Kushwaha — an ACCA-qualified accountant with a passion for technology.
+          Alongside my accounting career, I work as a mobile and web developer, building apps and
+          websites using HTML, CSS, JavaScript, and Flutter. I'm also the founder of
+          <strong>A2Z Teach</strong> YouTube Channel, an organisation where I create educational
+          content and tools to help others learn accounting, coding, and more. I love combining my
+          finance background with development skills to build practical, useful digital products.
+        </p>
+
+        <ul class="credential-list">
+          <li>
+            <div class="ico">📊</div>
+            <div><b>ACCA Accountant</b><span>Professional finance expertise</span></div>
+          </li>
+          <li>
+            <div class="ico">📱</div>
+            <div><b>App Developer</b><span>Building mobile apps with Flutter</span></div>
+          </li>
+          <li>
+            <div class="ico">🌐</div>
+            <div><b>Web Developer</b><span>HTML, CSS & JavaScript</span></div>
+          </li>
+          <li>
+            <div class="ico">🎓</div>
+            <div><b>A2Z Teach Founder</b><span>Teaching through YouTube</span></div>
+          </li>
+        </ul>
+
+        <div class="org-card">
+          <h4>Organisation</h4>
+          <h5>🎓 A2Z Teach</h5>
+          <p>Founded and led by Rupak Kumar Kushwaha, A2Z Teach is dedicated to making learning
+          accessible through tutorials, apps, and content — covering everything from accounting
+          fundamentals to web & mobile development.</p>
+        </div>
+
+        <div class="skills">
+          <span class="skill-chip" style="background:var(--coral)">HTML</span>
+          <span class="skill-chip" style="background:var(--gold)">CSS</span>
+          <span class="skill-chip" style="background:#F2C94C; color:#3a3358;">JavaScript</span>
+          <span class="skill-chip" style="background:#2ee6a6; color:#0B3B34;">Flutter</span>
+          <span class="skill-chip" style="background:var(--teal-deep)">Mobile Apps Development</span>
+          <span class="skill-chip" style="background:var(--violet)">Web Development</span>
+          <span class="skill-chip" style="background:var(--teal-dark)">YouTube Teaching</span>
+          <span class="skill-chip" style="background:var(--coral-dark)">ACCA / Accounting</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SERVICES / HIGHLIGHTS ================= -->
+<section class="services" id="highlights">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="tag">What I do</span>
+      <h2>Where I spend my time</h2>
+      <p>Four areas that make up my day-to-day work.</p>
+    </div>
+
+    <div class="service-grid">
+      <div class="service-card">
+        <div class="icon-badge">📊</div>
+        <h3>ACCA Accountant</h3>
+        <p>Professional Finance Accounting & Audit expertise.</p>
+      </div>
+      <div class="service-card">
+        <div class="icon-badge">📱</div>
         <h3>App Developer</h3>
         <p>Building mobile apps with Flutter.</p>
       </div>
-      <div class="highlight">
-        <div class="emoji">🌐</div>
+      <div class="service-card">
+        <div class="icon-badge">🌐</div>
         <h3>Web Developer</h3>
         <p>Crafting websites with HTML, CSS & JS.</p>
       </div>
-      <div class="highlight">
-        <div class="emoji">🎓</div>
-        <h3>Founder of A2Z Teach YouTube Channel</h3>
-        <p>Teaching and building tools to help others to learn from Youtube Channel.</p>
+      <div class="service-card">
+        <div class="icon-badge">🎓</div>
+        <h3>A2Z Teach Founder</h3>
+        <p>Teaching and building tools to help others learn from the YouTube channel.</p>
       </div>
     </div>
+  </div>
+</section>
 
-    <div class="company-banner">
-      <h3>🎓 A2Z Teach</h3>
-      <p>My organisation dedicated to teaching and empowering learners — from A2Z Teach YouTube Channel.
-      Founded and run by Rupak Kumar Kushwaha.</p>
+<!-- ================= MY APPS ================= -->
+<section class="apps" id="apps">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="tag" id="appsSectionCount">My Apps</span>
+      <h2>Tools & apps I've built</h2>
+      <p>Tap a card to open the app in a new tab.</p>
     </div>
-  </section>
-
-  <!-- MY APPS -->
-  <section id="apps" class="tab-panel">
-    <h2 class="section-title">My Apps</h2>
-    <p class="section-sub">Tap a box to open the app in a new tab 🚀</p>
     <div class="apps-grid" id="appsGrid"></div>
-  </section>
+  </div>
+</section>
 
-  <!-- ABOUT -->
-  <section id="about" class="tab-panel">
-    <div class="about-card">
-      <div class="about-top">
-        <div class="avatar"><span>🙂</span></div>
-        <div>
-          <h2>Rupak Kumar Kushwaha</h2>
-          <p class="role">• ACCA • Mobile & Web Developer</p>
-          <p class="role2">🎓 Founder — A2Z Teach YouTube Channel</p>
+<!-- ================= CONTACT ================= -->
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="tag">Contact</span>
+      <h2>Let's get in touch</h2>
+      <p>Questions about a project, collaboration, or the A2Z Teach channel? Reach out below.</p>
+    </div>
+
+    <div class="contact-card">
+      <div>
+        <h3>Contact details</h3>
+        <p>Reach out directly for project inquiries, collaborations, or general questions.</p>
+
+        <div class="contact-detail">
+          <div class="ico">📍</div>
+          <div><b>Location</b><br><span>Kathmandu, Nepal</span></div>
+        </div>
+        <div class="contact-detail">
+          <div class="ico">✉️</div>
+          <div><b>Email</b><br><a href="mailto:a2zteach0@gmail.com">a2zteach0@gmail.com</a></div>
+        </div>
+        <div class="contact-detail">
+          <div class="ico">▶️</div>
+          <div><b>YouTube Channel</b><br><span>A2Z Teach</span></div>
         </div>
       </div>
 
-      <p class="bio">
-        I'm Rupak Kumar Kushwaha — an ACCA-qualified accountant with a passion for technology.
-        Alongside my accounting career, I work as a mobile and web developer, building apps and
-        websites using HTML, CSS, JavaScript, and Flutter. I'm also the founder of
-        <strong>A2Z Teach</strong> YouTube Channel, an organisation where I create educational content and tools
-        to help others learn accounting, coding, and more. I love combining my finance
-        background with development skills to build practical, useful digital products.
-      </p>
-
-      <div class="company-card">
-        <h4>Organisation</h4>
-        <h3>🎓 A2Z Teach</h3>
-        <p>Founded and led by Rupak Kumar Kushwaha, A2Z Teach is dedicated to making learning
-        accessible through tutorials, apps, and content — covering everything from accounting
-        fundamentals to web & mobile development.</p>
-      </div>
-
-      <div class="info-grid">
-        <div class="info-item"><h4>📍 Location</h4><p>kathmandu, Nepal</p></div>
-        <div class="info-item"><h4>💼 Profession</h4><p>ACCA Accountant</p></div>
-        <div class="info-item"><h4>💻 Development</h4><p>Mobile & Web Developer</p></div>
-        <div class="info-item"><h4>🎓 Organisation</h4><p>Founder of A2Z Teach YouTube Channel</p></div>
-        <div class="info-item"><h4>📧 Email</h4><p>a2zteach0@gmail.com</p></div>
-        <div class="info-item"><h4>▶️ YouTube Channel</h4><p>A2Z Teach</p></div>
-      </div>
-
-      <div class="skills">
-        <span class="skill-chip" style="background:var(--pink)">HTML</span>
-        <span class="skill-chip" style="background:var(--orange)">CSS</span>
-        <span class="skill-chip" style="background:var(--yellow); color:#3a3358;">JavaScript</span>
-        <span class="skill-chip" style="background:var(--green)">Flutter</span>
-        <span class="skill-chip" style="background:var(--blue)">Mobile Apps Development</span>
-        <span class="skill-chip" style="background:var(--purple)">Web Development</span>
-        <span class="skill-chip" style="background:#ff5e5e">ACCA / Accounting</span>
-        <span class="skill-chip" style="background:#5e6bff">YouTube Teaching</span>
-      </div>
-
-      <div class="social-row">
-        <a href="https://youtube.com/@a2z-teach0" target="_blank" rel="noopener noreferrer" style="background:#ff0000;">▶️ YouTube</a>
-        <a href="https://www.instagram.com/rupak_kushwaha1" target="_blank" rel="noopener noreferrer" style="background:var(--pink);">📸 Instagram</a>
-        <a href="https://www.facebook.com/Rupak.Kushwaha0" target="_blank" rel="noopener noreferrer" style="background:var(--ink);">💻 Facebook</a>
-        <a href="https://www.linkedin.com/in/rupak-kushwaha0/" target="_blank" rel="noopener noreferrer" style="background:#0077b5;">💼 LinkedIn</a>
-        <a href="https://a2z-teach-website.netlify.app/" target="_blank" rel="noopener noreferrer" style="background:var(--purple);">🎓 A2Z Teach</a>
+      <div class="connect-panel">
+        <h4>Connect with me</h4>
+        <div class="social-row">
+          <a class="ic-yt" href="https://youtube.com/@a2z-teach0" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="6" width="19" height="12" rx="4" fill="none" stroke="currentColor" stroke-width="1.6"/><path fill="currentColor" d="M10 9.3v5.4l5-2.7-5-2.7z"/></svg>
+          </a>
+          <a class="ic-ig" href="https://www.instagram.com/rupak_kushwaha1" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a class="ic-fb" href="https://www.facebook.com/Rupak.Kushwaha0" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M15 8.5h2V5.5h-2.2C12.5 5.5 11 7.1 11 9.4V11H9v3h2v7h3v-7h2.3l.5-3H14v-1.3c0-.66.4-1.2 1-1.2z"/></svg>
+          </a>
+          <a class="ic-li" href="https://www.linkedin.com/in/rupak-kushwaha0/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4.98 3.5C4.98 4.6 4.1 5.5 3 5.5S1 4.6 1 3.5 1.9 1.5 3 1.5s1.98.9 1.98 2zM1.3 8h3.4v14H1.3zM8.6 8h3.26v1.92h.05c.45-.86 1.56-1.77 3.22-1.77 3.44 0 4.08 2.27 4.08 5.22V22h-3.4v-6.9c0-1.65-.03-3.77-2.3-3.77-2.3 0-2.65 1.8-2.65 3.65V22H8.6z"/></svg>
+          </a>
+          <a class="ic-web" href="https://a2z-teach-website.netlify.app/" target="_blank" rel="noopener noreferrer" aria-label="A2Z Teach Website">
+            <span style="font-size:1.1rem;">🎓</span>
+          </a>
+        </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-</main>
+<!-- ================= FOOTER ================= -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-col">
+        <div class="footer-brand">
+          <span class="mark">RK</span>
+          <span>Rupak Kumar Kushwaha</span>
+        </div>
+        <p>ACCA Accountant & Mobile/Web Developer, founder of A2Z Teach YouTube Channel —
+          building practical apps and educational tools for learners everywhere.</p>
+        <div class="footer-social">
+          <a class="ic-yt" href="https://youtube.com/@a2z-teach0" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="6" width="19" height="12" rx="4" fill="none" stroke="currentColor" stroke-width="1.6"/><path fill="currentColor" d="M10 9.3v5.4l5-2.7-5-2.7z"/></svg>
+          </a>
+          <a class="ic-ig" href="https://www.instagram.com/rupak_kushwaha1" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a class="ic-fb" href="https://www.facebook.com/Rupak.Kushwaha0" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M15 8.5h2V5.5h-2.2C12.5 5.5 11 7.1 11 9.4V11H9v3h2v7h3v-7h2.3l.5-3H14v-1.3c0-.66.4-1.2 1-1.2z"/></svg>
+          </a>
+          <a class="ic-li" href="https://www.linkedin.com/in/rupak-kushwaha0/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4.98 3.5C4.98 4.6 4.1 5.5 3 5.5S1 4.6 1 3.5 1.9 1.5 3 1.5s1.98.9 1.98 2zM1.3 8h3.4v14H1.3zM8.6 8h3.26v1.92h.05c.45-.86 1.56-1.77 3.22-1.77 3.44 0 4.08 2.27 4.08 5.22V22h-3.4v-6.9c0-1.65-.03-3.77-2.3-3.77-2.3 0-2.65 1.8-2.65 3.65V22H8.6z"/></svg>
+          </a>
+        </div>
+      </div>
 
-<footer> &copy; Copyright 2026 A2Z Teach (Rupak Kumar Kushwaha) All Rights Reserved | <a href="https://sites.google.com/view/rupakkushwaha/home" target="_blank" rel="noopener noreferrer">Privacy Policy</a></footer>
+      <div class="footer-col">
+        <h5>Navigate</h5>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#apps">My Apps</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Explore</h5>
+        <ul>
+          <li><a href="https://a2z-teach-website.netlify.app/" target="_blank" rel="noopener noreferrer">A2Z Teach</a></li>
+          <li><a href="https://youtube.com/@a2z-teach0" target="_blank" rel="noopener noreferrer">YouTube Channel</a></li>
+          <li><a href="#highlights">What I do</a></li>
+          <li><a href="#about">Credentials</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Organisation</h5>
+        <p>A2Z Teach<br>Kathmandu, Nepal<br>a2zteach0@gmail.com</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>&copy; <span id="year"></span> A2Z Teach (Rupak Kumar Kushwaha). All rights reserved.</span>
+      <span style="display:flex; gap:14px; flex-wrap:wrap;">
+        <!-- 📌 Replace the # below with your real Terms & Condition page link when it's ready -->
+        <a href="https://sites.google.com/view/rupakkushwaha/home" target="_blank" id="termsLink">Terms & Condition</a>
+        <a href="https://sites.google.com/view/rupakkushwaha/home" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<button class="to-top" id="toTop" aria-label="Back to top">↑</button>
 
 <script>
   // ---------- EDIT YOUR APPS HERE ----------
-  // Add/remove/edit objects below. `link` opens in a new tab when the box is clicked.
+  // Same app list and links as before — only the card styling changed.
   const APPS = [
-  { name: "Timer App",                     icon: "⏱️", tag: "Productivity", link: "https://timer-rupak.netlify.app/",                  color1: "#ff3d9a", color2: "#ff8a3d" },
-  { name: "Personalize <br> Birthday Surprise", icon: "🎂", tag: "Utility",      link: "https://personalized-birthday.netlify.app/", color1: "#ff416c", color2: "#ff4b2b" },
-  { name: "Useful Website",                icon: "🌐", tag: "Resource",     link: "https://daily-useful-website.netlify.app/",         color1: "#f7971e", color2: "#ffd200" },
-  { name: "A2Z Teach Website",             icon: "🏫", tag: "Resource",     link: "https://a2z-teach-website.netlify.app/",              color1: "#11998e", color2: "#2ee6a6" },
-  { name: "Class 12 Accounting Note",      icon: "📚", tag: "Education",    link: "https://class-12-accounting.netlify.app/",        color1: "#9b5cff", color2: "#ff3d9a" },
-  { name: "ACCA AA Practice",              icon: "🔍", tag: "Education",    link: "https://acca-aa-practice.netlify.app/",              color1: "#00c6ff", color2: "#0072ff" },
-  { name: "ACCA LW Practice",              icon: "⚖️", tag: "Education",    link: "https://acca-lw-practice.netlify.app/",              color1: "#4a00e0", color2: "#8e2de2" },
-  { name: "ACCA LW Notes",                 icon: "📖", tag: "Education",    link: "https://acca-lw-notes.netlify.app/",                 color1: "#f2994a", color2: "#f2c94c" },
-  { name: "ACCA PM Practice",              icon: "📊", tag: "Education",    link: "https://acca-pm-practice.netlify.app/",              color1: "#ff512f", color2: "#dd2476" },
-  { name: "ACCA FA Practice",              icon: "🧮", tag: "Education",    link: "https://acca-fa-practice.netlify.app/",              color1: "#11998e", color2: "#38ef7d" },
-  { name: "Screen Recorder",               icon: "🎥", tag: "Tool",         link: "https://screen-recorder-rupak.netlify.app/",          color1: "#e52d27", color2: "#b31217" },
-  { name: "Tic Tac Toe Game",              icon: "🎮", tag: "Game",         link: "https://tic-tac-toe-game-rupak.netlify.app/",         color1: "#8a2387", color2: "#e94057" },
-  { name: "Alphabet Matching Game",        icon: "🔤", tag: "Game",         link: "https://alphabet-matching-game.netlify.app/",        color1: "#f857a6", color2: "#ff5858" },
-  { name: "Kids Quiz Game",                icon: "🧩", tag: "Game",         link: "https://kids-quiz-game.netlify.app/",                 color1: "#3d9dff", color2: "#2ee6a6" },
-];
+  { name: "Timer App",                     icon: "⏱️", tag: "Productivity", link: "https://timer-rupak.netlify.app/",                  color1: "#FF6B5B", color2: "#F5A623" },
+  { name: "Personalize <br> Birthday Surprise", icon: "🎂", tag: "Utility",      link: "https://personalized-birthday.netlify.app/", color1: "#E5503F", color2: "#FF6B5B" },
+  { name: "A2Z Teach Website",             icon: "🏫", tag: "Resource",     link: "https://a2z-teach-website.netlify.app/",              color1: "#0B5E63", color2: "#2ee6a6" },
+  { name: "Class 12 Accounting Note",      icon: "📚", tag: "Education",    link: "https://class-12-accounting.netlify.app/",        color1: "#7B5CFF", color2: "#FF6B5B" },
+  { name: "ACCA AA Practice",              icon: "🔍", tag: "Education",    link: "https://acca-aa-practice.netlify.app/",              color1: "#0B5E63", color2: "#0077B5" },
+  { name: "ACCA LW Practice",              icon: "⚖️", tag: "Education",    link: "https://acca-lw-practice.netlify.app/",              color1: "#4a00e0", color2: "#7B5CFF" },
+  { name: "ACCA LW Notes",                 icon: "📖", tag: "Education",    link: "https://acca-lw-notes.netlify.app/",                 color1: "#F5A623", color2: "#F2C94C" },
+  { name: "ACCA PM Practice",              icon: "📊", tag: "Education",    link: "https://acca-pm-practice.netlify.app/",              color1: "#FF6B5B", color2: "#E5503F" },
+  { name: "ACCA FA Practice",              icon: "🧮", tag: "Education",    link: "https://acca-fa-practice.netlify.app/",              color1: "#0B5E63", color2: "#2ee6a6" },
+  { name: "Screen Recorder",               icon: "🎥", tag: "Tool",         link: "https://screen-recorder-rupak.netlify.app/",          color1: "#E5503F", color2: "#7B5CFF" },
+  { name: "Tic Tac Toe Game",              icon: "🎮", tag: "Game",         link: "https://tic-tac-toe-game-rupak.netlify.app/",         color1: "#7B5CFF", color2: "#FF6B5B" },
+  { name: "Alphabet Matching Game",        icon: "🔤", tag: "Game",         link: "https://alphabet-matching-game.netlify.app/",        color1: "#F5A623", color2: "#FF6B5B" },
+  { name: "Kids Quiz Game",                icon: "🧩", tag: "Game",         link: "https://kids-quiz-game.netlify.app/",                 color1: "#0B5E63", color2: "#2ee6a6" },
+  ];
   // -----------------------------------------
 
   const grid = document.getElementById('appsGrid');
   APPS.forEach(app => {
-    const box = document.createElement('button');
-    box.className = 'app-box';
-    box.style.background = `linear-gradient(135deg, ${app.color1}, ${app.color2})`;
-    box.innerHTML = `
-      <div class="icon">${app.icon}</div>
+    const card = document.createElement('button');
+    card.className = 'app-card';
+    card.innerHTML = `
+      <div class="icon" style="background:linear-gradient(135deg, ${app.color1}, ${app.color2});">${app.icon}</div>
       <div class="name">${app.name}</div>
-      <div class="tag">${app.tag}</div>
+      <div class="tag-pill">${app.tag}</div>
     `;
-    box.addEventListener('click', () => window.open(app.link, '_blank', 'noopener,noreferrer'));
-    grid.appendChild(box);
+    card.addEventListener('click', () => window.open(app.link, '_blank', 'noopener,noreferrer'));
+    grid.appendChild(card);
   });
 
-  // ---------- TAB SWITCHING ----------
-  const tabBtns = document.querySelectorAll('.tab-btn');
-  const panels = document.querySelectorAll('.tab-panel');
+  // App count updates automatically to match the APPS list above — add or
+  // remove an app in that list and this number (with its + sign) follows.
+  const appCount = APPS.length;
+  document.getElementById('appCountStat').textContent = appCount + '+';
+  document.getElementById('appsSectionCount').textContent = 'My Apps · ' + appCount + '+ built';
 
-  function switchTab(id){
-    tabBtns.forEach(b => b.classList.toggle('active', b.dataset.tab === id));
-    panels.forEach(p => p.classList.toggle('active', p.id === id));
-    window.scrollTo({top:0, behavior:'smooth'});
+  // Keep the mobile dropdown positioned exactly below the real header height,
+  // so it's never clipped and never overlaps content, on any screen size.
+  const siteHeader = document.querySelector('header.site-nav');
+  function setHeaderHeightVar(){
+    document.documentElement.style.setProperty('--header-h', siteHeader.offsetHeight + 'px');
   }
+  setHeaderHeightVar();
+  window.addEventListener('resize', setHeaderHeightVar);
+  window.addEventListener('load', setHeaderHeightVar);
 
-  tabBtns.forEach(btn => {
-    btn.addEventListener('click', () => switchTab(btn.dataset.tab));
+  // Mobile menu toggle
+  const burger = document.getElementById('burger');
+  const navLinks = document.getElementById('navLinks');
+  const navScrim = document.getElementById('navScrim');
+
+  function setMenu(isOpen){
+    navLinks.classList.toggle('open', isOpen);
+    burger.classList.toggle('open', isOpen);
+    navScrim.classList.toggle('show', isOpen);
+    burger.setAttribute('aria-expanded', isOpen);
+  }
+  burger.addEventListener('click', () => setMenu(!navLinks.classList.contains('open')));
+  navScrim.addEventListener('click', () => setMenu(false));
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => setMenu(false));
   });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') setMenu(false);
+  });
+
+  // Footer year
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Back to top button
+  const toTop = document.getElementById('toTop');
+  window.addEventListener('scroll', () => {
+    toTop.classList.toggle('show', window.scrollY > 420);
+  });
+  toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 </script>
 
 </body>
