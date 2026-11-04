@@ -546,7 +546,25 @@
     }
   ];
 
-  const DRIVE_PREFIX = "https://drive.google.com/uc?export=download&id=";
+  // Helper to force direct browser download (avoids Drive App & skips virus warning screen)
+  function getDirectDownloadUrl(driveInput) {
+    if (!driveInput) return '';
+
+    // If an external direct link is used (Mediafire, GitHub, Dropbox, etc.)
+    if (driveInput.startsWith('http') && !driveInput.includes('drive.google.com') && !driveInput.includes('drive.usercontent.google.com')) {
+      return driveInput;
+    }
+
+    // Extract File ID if a full Google Drive URL was pasted
+    let fileId = driveInput.trim();
+    const match = driveInput.match(/\/d\/([a-zA-Z0-9_-]+)/) || driveInput.match(/id=([a-zA-Z0-9_-]+)/);
+    if (match) {
+      fileId = match[1];
+    }
+
+    // Uses drive.usercontent to bypass the Android app and confirm=t to bypass the >25MB warning
+    return `https://drive.usercontent.google.com/download?id=${fileId}&export=download&confirm=t`;
+  }
 
   document.addEventListener('DOMContentLoaded', () => {
     const cardGrid = document.getElementById('cardGrid');
@@ -567,9 +585,7 @@
           const card = document.createElement('article');
           card.className = `download-card cat-${file.category}`;
           
-          const downloadUrl = file.driveId.startsWith('http') 
-            ? file.driveId 
-            : `${DRIVE_PREFIX}${file.driveId}`;
+          const downloadUrl = getDirectDownloadUrl(file.driveId);
 
           card.innerHTML = `
             <div class="card-top">
