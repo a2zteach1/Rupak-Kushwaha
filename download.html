@@ -348,18 +348,18 @@
 <!-- ================= NAV ================= -->
 <header class="site-nav">
   <div class="nav-inner">
-    <a href="index.html" class="brand">
+    <a href="/" class="brand">
       <span class="mark">RK</span>
       <span class="brand-text">Rupak Kumar Kushwaha<small>ACCA · DEVELOPER · YOUTUBER</small></span>
     </a>
 
     <div class="nav-right">
       <nav class="links" id="navLinks">
-        <a href="index.html#home">Home</a>
-        <a href="download.html" class="active">Downloads</a>
-        <a href="index.html#about">About</a>
-        <a href="index.html#apps">My Apps</a>
-        <a href="index.html#contact" class="cta-link">Contact</a>
+        <a href="/#home">Home</a>
+        <a href="/download" class="active">Downloads</a>
+        <a href="/#about">About</a>
+        <a href="/#apps">My Apps</a>
+        <a href="/#contact" class="cta-link">Contact</a>
       </nav>
 
       <!-- Theme toggle -->
@@ -449,19 +449,21 @@
   <div class="wrap">
     <div class="footer-bottom">
       <span>&copy; <span id="year"></span> A2Z Teach (Rupak Kumar Kushwaha). All rights reserved.</span>
-      <a href="index.html#home">← Back to Main Portfolio</a>
+      <a href="/#home">← Back to Main Portfolio</a>
     </div>
   </div>
 </footer>
 
 <script>
+  // Clean URL: Forces the address bar to display "/download" instead of "download.html"
+  if (window.location.pathname.endsWith('download.html')) {
+    window.history.replaceState(null, '', '/download');
+  }
+
   /* =====================================================================================================
-     FILES DATA: EDIT YOUR DOWNLOAD LINKS AND FILE DETAILS HERE use this for categori and icon
+     FILES DATA: EDIT YOUR DOWNLOAD LINKS AND FILE DETAILS HERE
      -----------------------------------------------------------------------------------------------------
      Categories: "app", "project", "code", "audio", "video", "pdf", "image"
-     -----------------------------------------------------------------------------------------------------
-     Icon: "fa-brands fa-android", "fa-solid fa-gamepad", "fa-solid fa-cubes", "fa-solid fa-file-image",
-       "fa-solid fa-file-code", "fa-solid fa-file-audio", "fa-solid fa-file-video", "fa-solid fa-file-lines",
      ======================================================================================================= */
   const filesData = [
     {
