@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<!-- ===== Theme init (syncs with main website) ===== -->
+<script>
+(function(){
+  try{
+    var saved = localStorage.getItem('a2z-theme') || 'system';
+    var resolved = saved === 'system'
+      ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
+      : saved;
+    document.documentElement.setAttribute('data-theme', resolved);
+  }catch(e){}
+})();
+</script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>Downloads Hub · Rupak Kushwaha ✨</title>
+<link rel="shortcut icon" href="image/logo.png" type="image/x-icon">
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+<style>
+  :root{
+    --teal-deep:   #0B5E63;
+    --teal-dark:   #063C40;
+    --teal-text:   #063C40;
+    --mint:        #E7F5EF;
+    --mint-soft:   #F4FBF8;
+    --coral:       #FF6B5B;
+    --coral-dark:  #E5503F;
+    --gold:        #F5A623;
+    --violet:      #7B5CFF;
+    --ink:         #14282A;
+    --ink-soft:    #46605F;
+    --paper:       #FDFBF6;
+    --white:       #ffffff;
+    --line:        rgba(11,94,99,0.14);
+    --nav-bg:      rgba(253,251,246,0.86);
+    --footer-bg:   #14282A;
+    --shadow:      0 18px 40px -18px rgba(6,60,64,0.35);
+    --radius-lg:   24px;
+    --radius-sm:   14px;
+    --ff-display:  'Fraunces', serif;
+    --ff-body:     'Manrope', sans-serif;
+
+    /* Category accents */
+    --cat-app:     #00b894;
+    --cat-project: #e67e22;
+    --cat-code:    #7B5CFF;
+    --cat-audio:   #fd79a8;
+    --cat-video:   #0984e3;
+    --cat-pdf:     #d63031;
+    --cat-image:   #00cec9;
+  }
+
+  :root[data-theme="dark"]{
+    --mint:        #15302E;
+    --mint-soft:   #101B1C;
+    --white:       #172325;
+    --paper:       #0E1516;
+    --ink:         #EAF3F1;
+    --ink-soft:    #9FB8B5;
+    --line:        rgba(255,255,255,0.14);
+    --nav-bg:      rgba(14,21,22,0.88);
+    --shadow:      0 18px 40px -18px rgba(0,0,0,0.6);
+    --teal-text:   #6FE0D2;
+  }
+
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  body{
+    font-family:var(--ff-body);
+    color:var(--ink);
+    background:var(--paper);
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+    transition:background 0.25s ease, color 0.25s ease;
+    padding-top:var(--header-h, 74px);
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+  }
+  img{ max-width:100%; display:block; }
+  a{ color:inherit; text-decoration:none; }
+  ul{ list-style:none; }
+
+  .wrap{
+    width:100%;
+    max-width:1180px;
+    margin:0 auto;
+    padding:0 clamp(20px,5vw,48px);
+  }
+
+  /* Decorative texture */
+  .grain-bg{
+    position:fixed; inset:0; pointer-events:none; z-index:0; opacity:0.5;
+    background-image:
+      radial-gradient(circle at 10% 20%, rgba(11,94,99,0.06) 0, transparent 45%),
+      radial-gradient(circle at 90% 10%, rgba(255,107,91,0.07) 0, transparent 40%),
+      radial-gradient(circle at 80% 90%, rgba(245,166,35,0.06) 0, transparent 45%);
+  }
+
+  /* ---------- NAV ---------- */
+  header.site-nav{
+    position:fixed; top:0; left:0; right:0; width:100%; z-index:100;
+    border-bottom:1px solid var(--line);
+  }
+  header.site-nav::before{
+    content:""; position:absolute; inset:0; z-index:-1;
+    background:var(--nav-bg);
+    backdrop-filter:blur(10px);
+    -webkit-backdrop-filter:blur(10px);
+  }
+  .nav-inner{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:14px clamp(20px,5vw,48px);
+    max-width:1180px; margin:0 auto;
+  }
+  .brand{
+    display:flex; align-items:center; gap:12px;
+    font-family:var(--ff-display); font-weight:600; font-size:1.15rem;
+    color:var(--teal-text);
+  }
+  .brand .mark{
+    width:42px; height:42px; border-radius:12px;
+    background:linear-gradient(135deg,var(--teal-deep),var(--teal-dark));
+    display:flex; align-items:center; justify-content:center;
+    color:#fff; font-family:var(--ff-display); font-weight:700; font-size:1.15rem;
+    box-shadow:0 8px 18px -6px rgba(6,60,64,0.55);
+    flex-shrink:0;
+  }
+  .brand .brand-text small{
+    display:block; font-family:var(--ff-body); font-weight:600; font-size:0.66rem;
+    letter-spacing:0.02em; color:var(--coral-dark); margin-top:1px;
+  }
+  .nav-right{ display:flex; align-items:center; gap:14px; }
+  nav.links{ display:flex; align-items:center; gap:2px; }
+  nav.links a{
+    padding:10px 16px; border-radius:999px; font-weight:600; font-size:0.94rem;
+    color:var(--ink-soft); transition:background 0.2s ease, color 0.2s ease;
+    white-space:nowrap;
+  }
+  nav.links a:hover, nav.links a.active{ background:var(--mint); color:var(--teal-text); }
+  nav.links a.cta-link{ background:var(--coral); color:#fff; margin-left:6px; }
+  nav.links a.cta-link:hover{ background:var(--coral-dark); color:#fff; }
+
+  /* Theme Switcher */
+  .theme-toggle{
+    display:flex; align-items:center; gap:2px;
+    background:var(--mint); border:1px solid var(--line);
+    border-radius:999px; padding:4px; flex-shrink:0;
+  }
+  .theme-toggle button{
+    width:34px; height:34px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    border:none; background:transparent; cursor:pointer;
+    color:var(--ink-soft);
+  }
+  .theme-toggle button svg{ width:17px; height:17px; }
+  .theme-toggle button.active{
+    background:var(--white); color:var(--teal-text);
+    box-shadow:0 6px 14px -6px rgba(6,60,64,0.35);
+  }
+  :root[data-theme="dark"] .theme-toggle button.active{ color:var(--gold); }
+
+  .theme-toggle-mobile{
+    display:none; width:40px; height:40px; border-radius:12px;
+    align-items:center; justify-content:center;
+    background:var(--mint); border:1px solid var(--line);
+    color:var(--ink-soft); cursor:pointer;
+  }
+  .theme-toggle-mobile svg{ width:19px; height:19px; display:none; }
+  .theme-toggle-mobile[data-pref="system"] .icon-system{ display:block; }
+  .theme-toggle-mobile[data-pref="dark"] .icon-dark{ display:block; }
+  .theme-toggle-mobile[data-pref="light"] .icon-light{ display:block; }
+
+  .burger{
+    display:none; width:44px; height:44px; border-radius:12px; border:1px solid var(--line);
+    background:var(--white); cursor:pointer; align-items:center; justify-content:center;
+    flex-direction:column; gap:5px;
+  }
+  .burger span{ width:20px; height:2px; background:var(--teal-text); border-radius:2px; transition:.25s ease; }
+  .burger.open span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
+  .burger.open span:nth-child(2){ opacity:0; }
+  .burger.open span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
+  .nav-scrim{ display:none; }
+
+  /* ---------- HUB CONTAINER ---------- */
+  .hub-section{
+    position:relative; z-index:1;
+    padding:clamp(40px,7vw,70px) 0 80px;
+    flex:1;
+  }
+  .section-head{ text-align:center; max-width:680px; margin:0 auto 36px; }
+  .section-head .tag{
+    display:inline-block; font-weight:700; font-size:0.82rem; color:var(--coral-dark);
+    background:rgba(255,107,91,0.12); padding:6px 16px; border-radius:999px; margin-bottom:14px;
+  }
+  .section-head h1{
+    font-family:var(--ff-display); font-weight:600; font-size:clamp(2rem,3.8vw,2.8rem);
+    margin-bottom:12px; color:var(--ink);
+  }
+  .section-head p{ color:var(--ink-soft); font-size:1.02rem; line-height:1.6; }
+
+  /* Filter buttons */
+  .filter-wrapper{
+    position:relative; display:flex; justify-content:center;
+    margin-bottom:40px; z-index:20;
+  }
+  .menu-toggle-btn{
+    display:none; background:var(--teal-deep); color:#fff;
+    border:none; padding:12px 22px; font-size:0.95rem; font-weight:700;
+    border-radius:999px; cursor:pointer; align-items:center; gap:8px;
+    box-shadow:0 8px 18px -4px rgba(11,94,99,0.4);
+  }
+  .filter-container{
+    display:flex; justify-content:center; flex-wrap:wrap; gap:8px;
+  }
+  .filter-btn{
+    background:var(--white); border:1px solid var(--line);
+    padding:9px 18px; border-radius:999px; font-weight:700; font-size:0.88rem;
+    color:var(--ink-soft); cursor:pointer; transition:all 0.2s ease;
+    display:flex; align-items:center; gap:8px;
+  }
+  .filter-btn:hover{ color:var(--teal-text); border-color:var(--teal-deep); }
+  .filter-btn.active{
+    background:var(--teal-deep); color:#fff; border-color:var(--teal-deep);
+    box-shadow:0 8px 18px -6px rgba(11,94,99,0.5);
+  }
+
+  /* Download Cards Grid */
+  .download-grid{
+    display:grid; grid-template-columns:repeat(auto-fill,minmax(270px,1fr));
+    gap:22px;
+  }
+  .download-card{
+    background:var(--white); border:1px solid var(--line); border-radius:var(--radius-lg);
+    padding:24px 22px; display:flex; flex-direction:column; justify-content:space-between;
+    box-shadow:0 12px 28px -18px rgba(6,60,64,0.25);
+    transition:transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .download-card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 20px 36px -16px rgba(6,60,64,0.35);
+  }
+
+  .card-top{ text-align:center; margin-bottom:18px; }
+  .card-icon{
+    width:64px; height:64px; margin:0 auto 16px; border-radius:18px;
+    display:flex; align-items:center; justify-content:center;
+    font-size:1.8rem;
+  }
+  .card-title{
+    font-family:var(--ff-display); font-size:1.18rem; font-weight:600;
+    color:var(--ink); margin-bottom:12px; line-height:1.3;
+  }
+  .card-info{
+    display:flex; justify-content:space-around;
+    background:var(--mint-soft); border:1px solid var(--line);
+    padding:10px; border-radius:var(--radius-sm); font-size:0.85rem;
+  }
+  .info-item{ display:flex; flex-direction:column; align-items:center; }
+  .info-item .label{
+    font-size:0.7rem; font-weight:800; text-transform:uppercase;
+    color:var(--ink-soft); letter-spacing:0.4px;
+  }
+  .info-item .value{ font-weight:700; color:var(--ink); margin-top:2px; }
+
+  /* Category colors */
+  .cat-app .card-icon{ background:rgba(0,184,148,0.14); color:var(--cat-app); }
+  .cat-project .card-icon{ background:rgba(230,126,34,0.14); color:var(--cat-project); }
+  .cat-code .card-icon{ background:rgba(123,92,255,0.14); color:var(--cat-code); }
+  .cat-audio .card-icon{ background:rgba(253,121,168,0.14); color:var(--cat-audio); }
+  .cat-video .card-icon{ background:rgba(9,132,227,0.14); color:var(--cat-video); }
+  .cat-pdf .card-icon{ background:rgba(214,48,49,0.14); color:var(--cat-pdf); }
+  .cat-image .card-icon{ background:rgba(0,206,201,0.14); color:var(--cat-image); }
+
+  .btn-download{
+    display:flex; align-items:center; justify-content:center; gap:8px;
+    padding:13px; border-radius:999px; font-weight:700; font-size:0.92rem;
+    color:#fff; background:var(--teal-deep); transition:background 0.2s, transform 0.2s;
+    box-shadow:0 8px 18px -6px rgba(11,94,99,0.4);
+  }
+  .btn-download:hover{ background:var(--coral); transform:translateY(-2px); }
+
+  /* Empty state */
+  #empty-msg{
+    display:none; text-align:center; grid-column:1 / -1;
+    padding:60px 20px; color:var(--ink-soft); font-size:1.05rem;
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer.site-footer{ background:var(--footer-bg); color:#CBD9D8; padding:50px 0 20px; margin-top:auto; }
+  .footer-bottom{
+    display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px;
+    font-size:0.86rem; color:#88A19E;
+  }
+  .footer-bottom a{ color:#88A19E; }
+  .footer-bottom a:hover{ color:var(--gold); }
+
+  /* Mobile responsiveness */
+  @media (max-width:760px){
+    .nav-right{ gap:8px; }
+    .theme-toggle{ display:none; }
+    .theme-toggle-mobile{ display:flex; }
+    nav.links{
+      position:fixed; left:0; right:0; top:var(--header-h, 73px); z-index:200;
+      background:var(--paper); flex-direction:column; align-items:stretch;
+      padding:14px 16px 20px; gap:6px; max-height:calc(100vh - var(--header-h, 73px));
+      overflow-y:auto; border-bottom:1px solid var(--line);
+      box-shadow:0 22px 34px -18px rgba(6,60,64,0.35);
+      transform:translateY(-12px); opacity:0; visibility:hidden;
+      transition:transform 0.22s ease, opacity 0.22s ease, visibility 0.22s;
+    }
+    nav.links.open{ transform:translateY(0); opacity:1; visibility:visible; }
+    nav.links a{ padding:15px 16px; font-size:1.02rem; border-radius:12px; }
+    .burger{ display:flex; z-index:210; }
+    .menu-toggle-btn{ display:flex; }
+    .filter-container{
+      display:none; position:absolute; top:52px; left:0; right:0;
+      margin:0 auto; width:100%; max-width:320px; flex-direction:column;
+      background:var(--white); padding:14px; border-radius:18px;
+      box-shadow:0 12px 30px rgba(0,0,0,0.22); border:1px solid var(--line);
+    }
+    .filter-container.show{ display:flex; }
+    .filter-btn{ width:100%; justify-content:flex-start; border-radius:10px; }
+    .nav-scrim{
+      display:block; position:fixed; inset:var(--header-h, 73px) 0 0 0;
+      z-index:150; background:rgba(6,60,64,0.3); opacity:0; pointer-events:none;
+      transition:opacity 0.22s ease;
+    }
+    .nav-scrim.show{ opacity:1; pointer-events:auto; }
+  }
+</style>
+</head>
+<body>
+
+<div class="grain-bg" aria-hidden="true"></div>
+
+<!-- ================= NAV ================= -->
+<header class="site-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <span class="mark">RK</span>
+      <span class="brand-text">Rupak Kumar Kushwaha<small>ACCA · DEVELOPER · YOUTUBER</small></span>
+    </a>
+
+    <div class="nav-right">
+      <nav class="links" id="navLinks">
+        <a href="index.html#home">Home</a>
+        <a href="download.html" class="active">Downloads</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#apps">My Apps</a>
+        <a href="index.html#contact" class="cta-link">Contact</a>
+      </nav>
+
+      <!-- Theme toggle -->
+      <div class="theme-toggle" id="themeToggle" role="group" aria-label="Theme switcher">
+        <button type="button" data-theme="system" title="System default">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="4" width="18" height="12" rx="2"/>
+            <path d="M8 20h8M12 16v4"/>
+          </svg>
+        </button>
+        <button type="button" data-theme="dark" title="Dark mode">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M20.4 14.7A8.5 8.5 0 0 1 9.3 3.6a.6.6 0 0 0-.7-.8A9.5 9.5 0 1 0 21.2 15.4a.6.6 0 0 0-.8-.7z"/>
+          </svg>
+        </button>
+        <button type="button" data-theme="light" title="Light mode">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M12 2v2M12 20v2M4 12H2M22 12h-2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Mobile theme button -->
+      <button type="button" class="theme-toggle-mobile" id="themeToggleMobile" data-pref="system" title="Tap to switch theme">
+        <svg class="icon-system" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="4" width="18" height="12" rx="2"/>
+          <path d="M8 20h8M12 16v4"/>
+        </svg>
+        <svg class="icon-dark" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M20.4 14.7A8.5 8.5 0 0 1 9.3 3.6a.6.6 0 0 0-.7-.8A9.5 9.5 0 1 0 21.2 15.4a.6.6 0 0 0-.8-.7z"/>
+        </svg>
+        <svg class="icon-light" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="4"/>
+          <path d="M12 2v2M12 20v2M4 12H2M22 12h-2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"/>
+        </svg>
+      </button>
+
+      <button class="burger" id="burger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="nav-scrim" id="navScrim"></div>
+</header>
+
+<!-- ================= DOWNLOAD HUB ================= -->
+<main class="hub-section">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="tag">Resource Hub</span>
+      <h1>Resource Download Center</h1>
+      <p>Filter by category to locate and download apps, notes, project files, and resources.</p>
+    </div>
+
+    <!-- Category Filters -->
+    <div class="filter-wrapper" id="filterWrapper">
+      <button class="menu-toggle-btn" id="menuToggleBtn">
+        <i class="fa-solid fa-filter"></i> Filter Categories
+      </button>
+
+      <div class="filter-container" id="filterContainer">
+        <button class="filter-btn active" data-filter="all"><i class="fa-solid fa-border-all"></i> All Files</button>
+        <button class="filter-btn" data-filter="app"><i class="fa-solid fa-mobile-screen-button"></i> Apps</button>
+        <button class="filter-btn" data-filter="project"><i class="fa-solid fa-folder-open"></i> Projects</button>
+        <button class="filter-btn" data-filter="code"><i class="fa-solid fa-code"></i> Source Code</button>
+        <button class="filter-btn" data-filter="audio"><i class="fa-solid fa-music"></i> Audio</button>
+        <button class="filter-btn" data-filter="video"><i class="fa-solid fa-video"></i> Video</button>
+        <button class="filter-btn" data-filter="pdf"><i class="fa-solid fa-file-pdf"></i> PDF / Docs</button>
+        <button class="filter-btn" data-filter="image"><i class="fa-solid fa-image"></i> Images</button>
+      </div>
+    </div>
+
+    <!-- Cards Grid -->
+    <div class="download-grid" id="cardGrid"></div>
+
+    <!-- Empty Message -->
+    <div id="empty-msg">
+      <i class="fa-solid fa-folder-open" style="font-size: 2.5rem; margin-bottom: 12px; display: block; color:var(--coral);"></i>
+      No downloadable files found under this category yet.
+    </div>
+  </div>
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-bottom">
+      <span>&copy; <span id="year"></span> A2Z Teach (Rupak Kumar Kushwaha). All rights reserved.</span>
+      <a href="index.html#home">← Back to Main Portfolio</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  /* ==========================================================================
+     FILES DATA: EDIT YOUR DOWNLOAD LINKS AND FILE DETAILS HERE
+     --------------------------------------------------------------------------
+     Categories: "app", "project", "code", "audio", "video", "pdf", "image"
+     ========================================================================== */
+  const filesData = [
+    {
+      title: "Task Manager App",
+      category: "app",
+      icon: "fa-brands fa-android",
+      type: "APK",
+      size: "24.5 MB",
+      driveId: "YOUR_FILE_ID_1"
+    },
+    {
+      title: "2D Runner Game",
+      category: "app",
+      icon: "fa-solid fa-gamepad",
+      type: "APK",
+      size: "48.2 MB",
+      driveId: "YOUR_FILE_ID_2"
+    },
+    {
+      title: "Blender 3D Scene Project",
+      category: "project",
+      icon: "fa-solid fa-cubes",
+      type: "BLEND / ZIP",
+      size: "112.0 MB",
+      driveId: "YOUR_FILE_ID_3"
+    },
+    {
+      title: "E-Commerce Web Template",
+      category: "code",
+      icon: "fa-solid fa-file-code",
+      type: "ZIP Code",
+      size: "14.8 MB",
+      driveId: "YOUR_FILE_ID_4"
+    },
+    {
+      title: "Background Music Track",
+      category: "audio",
+      icon: "fa-solid fa-file-audio",
+      type: "MP3",
+      size: "8.2 MB",
+      driveId: "YOUR_FILE_ID_5"
+    },
+    {
+      title: "4K Intro Animation Video",
+      category: "video",
+      icon: "fa-solid fa-file-video",
+      type: "MP4",
+      size: "185.0 MB",
+      driveId: "YOUR_FILE_ID_6"
+    },
+    {
+      title: "Full User Guide Manual",
+      category: "pdf",
+      icon: "fa-solid fa-file-lines",
+      type: "PDF",
+      size: "3.4 MB",
+      driveId: "YOUR_FILE_ID_7"
+    },
+    {
+      title: "UI Icon Graphics Bundle",
+      category: "image",
+      icon: "fa-solid fa-file-image",
+      type: "PNG / SVG",
+      size: "12.1 MB",
+      driveId: "YOUR_FILE_ID_8"
+    }
+  ];
+
+  const DRIVE_PREFIX = "https://drive.google.com/uc?export=download&id=";
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const cardGrid = document.getElementById('cardGrid');
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const emptyMsg = document.getElementById('empty-msg');
+    const menuToggleBtn = document.getElementById('menuToggleBtn');
+    const filterContainer = document.getElementById('filterContainer');
+    const filterWrapper = document.getElementById('filterWrapper');
+
+    function renderCards(filter = 'all') {
+      cardGrid.innerHTML = '';
+      let visibleCount = 0;
+
+      filesData.forEach(file => {
+        if (filter === 'all' || filter === file.category) {
+          visibleCount++;
+          
+          const card = document.createElement('article');
+          card.className = `download-card cat-${file.category}`;
+          
+          const downloadUrl = file.driveId.startsWith('http') 
+            ? file.driveId 
+            : `${DRIVE_PREFIX}${file.driveId}`;
+
+          card.innerHTML = `
+            <div class="card-top">
+              <div class="card-icon"><i class="${file.icon}"></i></div>
+              <h2 class="card-title">${file.title}</h2>
+              <div class="card-info">
+                <div class="info-item"><span class="label">Type</span><span class="value">${file.type}</span></div>
+                <div class="info-item"><span class="label">Size</span><span class="value">${file.size}</span></div>
+              </div>
+            </div>
+            <a href="${downloadUrl}" class="btn-download" target="_blank" rel="noopener">
+              <i class="fa-solid fa-download"></i> Download File
+            </a>
+          `;
+
+          const btn = card.querySelector('.btn-download');
+          btn.addEventListener('click', (e) => {
+            if (file.driveId.includes('YOUR_FILE_ID')) {
+              e.preventDefault();
+              alert(`Please replace "YOUR_FILE_ID" with your real Google Drive File ID for "${file.title}".`);
+            }
+          });
+
+          cardGrid.appendChild(card);
+        }
+      });
+
+      emptyMsg.style.display = visibleCount === 0 ? 'block' : 'none';
+    }
+
+    renderCards('all');
+
+    // Filter clicks
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        renderCards(btn.getAttribute('data-filter'));
+        if (window.innerWidth <= 760) filterContainer.classList.remove('show');
+      });
+    });
+
+    menuToggleBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      filterContainer.classList.toggle('show');
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!filterWrapper.contains(e.target)) {
+        filterContainer.classList.remove('show');
+      }
+    });
+
+    // Mobile Navbar Toggle
+    const burger = document.getElementById('burger');
+    const navLinks = document.getElementById('navLinks');
+    const navScrim = document.getElementById('navScrim');
+
+    function setMenu(isOpen){
+      navLinks.classList.toggle('open', isOpen);
+      burger.classList.toggle('open', isOpen);
+      navScrim.classList.toggle('show', isOpen);
+      burger.setAttribute('aria-expanded', isOpen);
+    }
+    burger.addEventListener('click', () => setMenu(!navLinks.classList.contains('open')));
+    navScrim.addEventListener('click', () => setMenu(false));
+
+    // Calculate navbar height
+    const siteHeader = document.querySelector('header.site-nav');
+    function setHeaderH(){
+      document.documentElement.style.setProperty('--header-h', siteHeader.offsetHeight + 'px');
+    }
+    setHeaderH();
+    window.addEventListener('resize', setHeaderH);
+
+    // Year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Theme Switcher Sync
+    const THEME_KEY = 'a2z-theme';
+    const THEME_CYCLE = ['system', 'dark', 'light'];
+    const themeToggle = document.getElementById('themeToggle');
+    const themeButtons = themeToggle.querySelectorAll('button');
+    const themeToggleMobile = document.getElementById('themeToggleMobile');
+    const systemMedia = window.matchMedia('(prefers-color-scheme: dark)');
+
+    function resolveTheme(pref){
+      return pref === 'system' ? (systemMedia.matches ? 'dark' : 'light') : pref;
+    }
+
+    function applyTheme(pref){
+      document.documentElement.setAttribute('data-theme', resolveTheme(pref));
+      themeButtons.forEach(b => b.classList.toggle('active', b.dataset.theme === pref));
+      themeToggleMobile.setAttribute('data-pref', pref);
+      localStorage.setItem(THEME_KEY, pref);
+    }
+
+    themeButtons.forEach(btn => {
+      btn.addEventListener('click', () => applyTheme(btn.dataset.theme));
+    });
+
+    themeToggleMobile.addEventListener('click', () => {
+      const current = localStorage.getItem(THEME_KEY) || 'system';
+      const next = THEME_CYCLE[(THEME_CYCLE.indexOf(current) + 1) % THEME_CYCLE.length];
+      applyTheme(next);
+    });
+
+    systemMedia.addEventListener('change', () => {
+      if ((localStorage.getItem(THEME_KEY) || 'system') === 'system') applyTheme('system');
+    });
+
+    applyTheme(localStorage.getItem(THEME_KEY) || 'system');
+  });
+</script>
+
+</body>
+</html>
